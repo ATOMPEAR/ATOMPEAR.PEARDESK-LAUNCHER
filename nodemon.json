@@ -1,0 +1,10 @@
+{
+  "watch": [
+    "resource/source/java/main.js",
+    "resource/source/java/preload.js",
+    "resource/source/java/renderer.js",
+    "resource/source/index.html"
+  ],
+  "ignore": ["resource/build/*"],
+  "ext": "js,html,css"
+} 

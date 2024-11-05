@@ -1,4 +1,2 @@
-mode_modules/
+node_modules/
 .vscode/
-resource/source/com/
-.cursorrules
