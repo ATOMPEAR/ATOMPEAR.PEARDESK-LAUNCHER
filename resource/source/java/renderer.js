@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const openStartButton = document.querySelector('.titlebar-button-openstart');
   const mainContent1 = document.querySelector('.main-content1');
   const mainContent2 = document.querySelector('.main-content2');
+  const searchCommands = document.querySelector('.search-commands');
+  const content1Content = document.querySelector('.content1-content');
 
   minimizeButton.addEventListener('click', () => {
     window.electronAPI.minimizeWindow();
@@ -31,6 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', (e) => {
       e.stopPropagation();
       const action = e.target.textContent.toLowerCase().replace(' ', '-');
+      
+      if (action === 'commands') {
+        searchCommands.classList.toggle('visible');
+      }
+      
       window.electronAPI.handleOptionsAction(action);
       optionsButton.classList.remove('active');
       optionsButton.setAttribute('aria-expanded', 'false');

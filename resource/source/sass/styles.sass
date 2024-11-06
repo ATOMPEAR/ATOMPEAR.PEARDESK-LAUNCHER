@@ -147,31 +147,63 @@ html, body
   height: calc(100vh - #{$titlebar-height})
   background-color: #ffffff
   display: none
+  flex-direction: column
 
   &.active
-    display: block
+    display: flex
+
+  .search-commands
+    width: 100%
+    height: 32px
+    background-color: #222222
+    display: none
+    flex-direction: row
+    align-items: center
+    flex-shrink: 0
+    color: #ffffff
+
+    &.visible
+      display: flex
 
   .content1-content
     background-color: inherit
     width: 100%
-    height: calc(100% - 32px)
+    flex: 1 1 auto
     display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: stretch
+    transition: height 0.3s ease
+    height: calc(100% - 32px)
 
     .programs-list
       height: 100%
-      width: 220px
+      flex: 0 0 220px
       background-color: #ffffff
+      display: flex
+      flex-direction: column
+      color: #222222
 
     .systems-menu
       height: 100%
-      width: 180px
+      flex: 0 0 180px
       background-color: #222222
+      display: flex
+      flex-direction: column
+      color: #fffffff
 
   .content1-footer
     width: 100%
     height: 32px
     background-color: #222222
-
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: nowrap
+    flex-shrink: 0
+    color: #ffffff
+    
 .main-content2
   position: fixed
   top: $titlebar-height
@@ -182,14 +214,17 @@ html, body
   height: calc(100vh - #{$titlebar-height})
   background-color: #ffffff
   display: none
+  flex-direction: column
 
   &.active
-    display: block
+    display: flex
 
   .content2-content
     background-color: inherit
     width: 100%
-    height: 100%
+    flex: 1 1 auto
+    display: flex
+    flex-direction: column
 
 // Responsive design
 @media (max-width: 768px)
