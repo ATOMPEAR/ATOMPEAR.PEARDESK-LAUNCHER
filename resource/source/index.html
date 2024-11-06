@@ -10,7 +10,12 @@
 </head>
 <body class="app">
     <div class="titlebar" role="banner">
-        <div class="titlebar-title">Electron App</div>
+        <div class="titlebar-left">
+            <button class="titlebar-button titlebar-button-openstart" aria-label="Open Start">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="titlebar-title">PearDesk</div>
+        </div>
         <div class="titlebar-controls">
             <div class="options-container">
                 <button class="titlebar-button titlebar-button-options" aria-label="Options" aria-haspopup="true" aria-expanded="false"></button>
@@ -24,16 +29,20 @@
         </div>
     </div>
 
-    <main class="main-content" role="main">
-        <section class="content-section">
-            <h2 class="content-title">Welcome to your Electron App</h2>
-            <p class="content-text">This is a basic setup for your application.</p>
-        </section>
+    <main class="main-content1 active" role="main">
+        <div class="content1-content">
+            <section class="programs-list">
+            </section>
+            <section class="systems-menu">
+            </section>
+        </div>
+        <footer class="content1-footer"></footer>
     </main>
 
-    <footer class="app-footer" role="contentinfo">
-        <p class="content-text">© 2024 Electron App</p>
-    </footer>
+    <main class="main-content2" role="main">
+        <div class="content2-content">
+        </div>
+    </main>
 
     <script src="./java/renderer.js"></script>
 </body>

@@ -4,9 +4,7 @@
     "resource/source/java/preload.js",
     "resource/source/java/renderer.js",
     "resource/source/index.html",
-    "resource/source/sass/styles.sass",
-    "package.json",
-    "nodemon.json"
+    "resource/source/sass/styles.sass"
   ],
   "ignore": [
     "resource/source/com/*",

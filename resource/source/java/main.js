@@ -17,7 +17,8 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    title: 'PEARDESK'
   });
 
   const indexPath = path.join(__dirname, '..', 'index.html');
@@ -62,7 +63,7 @@ function updateTrayMenu() {
 function createTray() {
   tray = new Tray(path.join(__dirname, '../../assets/images/favicons/favicon.ico'));
   
-  tray.setToolTip('Electron App');
+  tray.setToolTip('PEARDESK');
   updateTrayMenu();
 
   // Double click on tray icon shows the window

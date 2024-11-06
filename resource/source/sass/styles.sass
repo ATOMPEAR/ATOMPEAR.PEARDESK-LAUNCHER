@@ -6,7 +6,7 @@ $primary-color: #222222
 $secondary-color: #c0c0c0
 $accent-color: #01a2ff
 
-$text-color: #333
+$text-color: #FFFFFF
 $background-color: #fff
 $titlebar-height: 32px
 $close-button-color: #ff5f57
@@ -15,15 +15,16 @@ $options-button-color: #28c940
 $control-button-size: 12px
 $dropdown-bg: #fff
 $dropdown-text: #333
-$dropdown-hover: #f5f5f5
-$dropdown-border: #ddd
+$dropdown-hover: #222222
+$dropdown-border: #ffffff
 
 // Base styles
 .app
   margin: 0
   padding: 0
-  font-family: -'Terminus', 'Ubuntu'
-  background-color: $background-color
+  font-family: 'Ubuntu', monospace
+  font-weight: normal
+  background-color: $secondary-color
   color: $text-color
   user-select: none
   height: 100vh
@@ -49,11 +50,15 @@ html, body
   right: 0
   z-index: 1000
 
+  &-left
+    display: flex
+    align-items: center
+    gap: 10px
+
   &-title
     color: white
     font-size: 14px
-    font-family: 'Terminus', 'Ubuntu'
-    font-weight: normal
+    text-transform: uppercase
 
   &-controls
     display: flex
@@ -63,12 +68,6 @@ html, body
     align-items: center
     margin-right: 2px
 
-.options-container
-  position: relative
-  height: 100%
-  display: flex
-  align-items: center
-  
 .titlebar-button
   width: $control-button-size
   height: $control-button-size
@@ -76,7 +75,6 @@ html, body
   border: none
   transition: opacity 0.2s
   padding: 0
-  cursor: pointer
   display: flex
   align-items: center
   justify-content: center
@@ -96,15 +94,29 @@ html, body
   &-close
     background-color: $close-button-color
 
+  &-openstart
+    color: white
+    background: transparent
+    font-size: 14px
+    width: auto
+    height: auto
+    -webkit-app-region: no-drag
+    
+    &:hover
+      color: $accent-color
+
+    i
+      pointer-events: none
+
 // Dropdown styles
 .options-dropdown
   display: none
   position: absolute
-  top: calc(100% + 5px)
-  left: -45px
+  top: 100%
+  right: 5px
   background-color: $dropdown-bg
-  border: 1px solid $dropdown-border
-  border-radius: 4px
+  border: 2px solid $dropdown-border
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
   z-index: 1001
   min-width: 100px
@@ -117,52 +129,67 @@ html, body
     padding: 8px 12px
     color: $dropdown-text
     font-size: 13px
-    cursor: pointer
     transition: background-color 0.2s
     white-space: nowrap
 
     &:hover
       background-color: $dropdown-hover
+      color: #ffffff
 
-// Layout adjustments
-.main-content
+// Main content styles
+.main-content1
   position: fixed
   top: $titlebar-height
   left: 0
   right: 0
   bottom: 50px
-  padding: 1rem
-  overflow-y: auto
+  width: 100%
+  height: calc(100vh - #{$titlebar-height})
+  background-color: #ffffff
+  display: none
 
-.content-section
-  background-color: white
-  padding: 1rem
-  border-radius: 8px
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+  &.active
+    display: block
 
-.content-title
-  margin-top: 0
-  color: $primary-color
-  font-size: 1.5rem
+  .content1-content
+    background-color: inherit
+    width: 100%
+    height: calc(100% - 32px)
+    display: flex
 
-.content-text
-  color: $text-color
-  line-height: 1.5
+    .programs-list
+      height: 100%
+      width: 220px
+      background-color: #ffffff
 
-.app-footer
-  background-color: $primary-color
-  color: white
-  padding: 0.5rem
-  text-align: center
+    .systems-menu
+      height: 100%
+      width: 180px
+      background-color: #222222
+
+  .content1-footer
+    width: 100%
+    height: 32px
+    background-color: #222222
+
+.main-content2
   position: fixed
-  bottom: 0
+  top: $titlebar-height
   left: 0
   right: 0
-  height: 50px
-  font-size: 12px
-  display: flex
-  align-items: center
-  justify-content: center
+  bottom: 50px
+  width: 100%
+  height: calc(100vh - #{$titlebar-height})
+  background-color: #ffffff
+  display: none
+
+  &.active
+    display: block
+
+  .content2-content
+    background-color: inherit
+    width: 100%
+    height: 100%
 
 // Responsive design
 @media (max-width: 768px)

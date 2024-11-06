@@ -1,7 +1,7 @@
 {
-  "name": "peardesk-launcher",
-  "version": "00.00.02",
-  "description": "Application Launcher for AtomPear PearDesk",
+  "name": "electron-app",
+  "version": "00.00.03",
+  "description": "Electron application with SASS",
   "main": "resource/source/java/main.js",
   "scripts": {
     "start": "nodemon --exec electron .",

@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const minimizeButton = document.querySelector('.titlebar-button-minimize');
   const closeButton = document.querySelector('.titlebar-button-close');
   const optionsButton = document.querySelector('.titlebar-button-options');
-  const optionsDropdown = document.querySelector('.options-dropdown');
+  const openStartButton = document.querySelector('.titlebar-button-openstart');
+  const mainContent1 = document.querySelector('.main-content1');
+  const mainContent2 = document.querySelector('.main-content2');
 
   minimizeButton.addEventListener('click', () => {
     window.electronAPI.minimizeWindow();
@@ -47,5 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', () => {
     optionsButton.classList.remove('active');
     optionsButton.setAttribute('aria-expanded', 'false');
+  });
+
+  // OpenStart button functionality
+  openStartButton.addEventListener('click', () => {
+    mainContent1.classList.toggle('active');
+    mainContent2.classList.toggle('active');
   });
 });
