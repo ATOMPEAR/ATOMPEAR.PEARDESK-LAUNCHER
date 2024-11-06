@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App</title>
+
+    <link rel="stylesheet" href="./com/styles.min.css">
+    <script src="https://kit.fontawesome.com/dbd1c218fe.js" crossorigin="anonymous"></script>
+</head>
+<body class="app">
+    <div class="titlebar" role="banner">
+        <div class="titlebar-left">
+            <button class="titlebar-button titlebar-button-openstart" aria-label="Open Start">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="titlebar-title">PearDesk</div>
+        </div>
+        <div class="titlebar-controls">
+            <div class="options-container">
+                <button class="titlebar-button titlebar-button-options" aria-label="Options" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="options-dropdown">
+                    <div class="options-dropdown-item" role="menuitem" tabindex="0">Position</div>
+                    <div class="options-dropdown-item" role="menuitem" tabindex="0">Commands</div>
+                </div>
+            </div>
+            <button class="titlebar-button titlebar-button-minimize" aria-label="Minimize"></button>
+            <button class="titlebar-button titlebar-button-close" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <main class="main-content1 active" role="main">
+        <div class="content1-content">
+            <section class="programs-list">
+            </section>
+            <section class="systems-menu">
+            </section>
+        </div>
+        <footer class="content1-footer"></footer>
+    </main>
+
+    <main class="main-content2" role="main">
+        <div class="content2-content">
+        </div>
+    </main>
+
+    <script src="./java/renderer.js"></script>
+</body>
+</html>
