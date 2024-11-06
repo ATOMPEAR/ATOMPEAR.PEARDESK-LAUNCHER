@@ -3,50 +3,93 @@ $primary-color: #2c3e50
 $secondary-color: #3498db
 $text-color: #333
 $background-color: #fff
+$titlebar-height: 32px
+$close-button-color: #ff5f57
+$minimize-button-color: #ffbd2e
+$control-button-size: 12px
 
 // Base styles
-html, body
+.app
   margin: 0
   padding: 0
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   background-color: $background-color
   color: $text-color
+  user-select: none
+  min-height: 100vh
+
+// Titlebar
+.titlebar
+  height: $titlebar-height
+  background-color: $primary-color
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 10px
+  -webkit-app-region: drag
+
+  &-title
+    color: white
+    font-size: 14px
+
+  &-controls
+    display: flex
+    gap: 8px
+    -webkit-app-region: no-drag
+
+  &-button
+    width: $control-button-size
+    height: $control-button-size
+    border-radius: 50%
+    border: none
+    cursor: pointer
+    transition: opacity 0.2s
+    padding: 0
+
+    &:hover
+      opacity: 0.8
+
+    &-minimize
+      background-color: $minimize-button-color
+
+    &-close
+      background-color: $close-button-color
 
 // Layout
-header
+.main-content
+  padding: 1rem
+  height: calc(100vh - #{$titlebar-height} - 50px)
+  overflow-y: auto
+
+.content-section
+  background-color: white
+  padding: 1rem
+  border-radius: 8px
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+.content-title
+  margin-top: 0
+  color: $primary-color
+  font-size: 1.5rem
+
+.content-text
+  color: $text-color
+  line-height: 1.5
+
+.app-footer
   background-color: $primary-color
   color: white
-  padding: 1rem
-  text-align: center
-
-  h1
-    margin: 0
-    font-size: 2rem
-
-main
-  padding: 2rem
-  max-width: 1200px
-  margin: 0 auto
-
-  .content
-    background-color: white
-    padding: 2rem
-    border-radius: 8px
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
-
-footer
-  background-color: $primary-color
-  color: white
-  padding: 1rem
+  padding: 0.5rem
   text-align: center
   position: fixed
   bottom: 0
   width: 100%
+  font-size: 12px
 
 // Responsive design
 @media (max-width: 768px)
-  main
-    padding: 1rem
+  .main-content
+    padding: 0.5rem
 
-  .content
-    padding: 1rem
+  .content-section
+    padding: 0.5rem

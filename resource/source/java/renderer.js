@@ -1,6 +1,15 @@
 'use strict';
 
-// Your renderer process code here
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize your app's UI interactions here
+  // Window control buttons
+  const minimizeButton = document.querySelector('.titlebar-button-minimize');
+  const closeButton = document.querySelector('.titlebar-button-close');
+
+  minimizeButton.addEventListener('click', () => {
+    window.electronAPI.minimizeWindow();
+  });
+
+  closeButton.addEventListener('click', () => {
+    window.electronAPI.closeWindow();
+  });
 });
