@@ -1,6 +1,6 @@
 {
   "name": "peardesk-launcher",
-  "version": "00.00.01",
+  "version": "00.00.02",
   "description": "Application Launcher for AtomPear PearDesk",
   "main": "resource/source/java/main.js",
   "scripts": {
