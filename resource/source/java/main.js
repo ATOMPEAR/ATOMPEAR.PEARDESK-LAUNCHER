@@ -118,6 +118,19 @@ app.whenReady().then(() => {
       createWindow();
     }
   });
+
+  ipcMain.on('options-action', (_, action) => {
+    switch(action) {
+      case 'snap-position':
+        // Handle snap position action
+        console.log('Snap position clicked');
+        break;
+      case 'quick-commands':
+        // Handle quick commands action
+        console.log('Quick commands clicked');
+        break;
+    }
+  });
 });
 
 // Quit the app when all windows are closed (except on macOS)

@@ -1,12 +1,12 @@
 {
-  "name": "electron-app",
-  "version": "1.0.0",
-  "description": "Electron application with SASS",
+  "name": "peardesk-launcher",
+  "version": "00.00.01",
+  "description": "Application Launcher for AtomPear PearDesk",
   "main": "resource/source/java/main.js",
   "scripts": {
     "start": "nodemon --exec electron .",
-    "sass": "sass --watch --style=compressed resource/source/sass/styles.sass:resource/source/com/styles.min.css",
-    "dev": "concurrently \"npm run start\" \"npm run sass\""
+    "sass": "sass --watch --style=compressed resource/source/sass/styles.sass:resource/source/com/styles.min.css --no-source-map",
+    "dev": "concurrently --kill-others \"npm run sass\" \"npm run start\""
   },
   "dependencies": {
     "electron": "29.0.0"
