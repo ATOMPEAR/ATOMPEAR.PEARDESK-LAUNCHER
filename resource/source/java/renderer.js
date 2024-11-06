@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeButton = document.querySelector('.titlebar-button-close');
   const optionsButton = document.querySelector('.titlebar-button-options');
   const openStartButton = document.querySelector('.titlebar-button-openstart');
+  const openStartIcon = openStartButton.querySelector('i');
   const mainContent1 = document.querySelector('.main-content1');
   const mainContent2 = document.querySelector('.main-content2');
   const searchCommands = document.querySelector('.search-commands');
@@ -62,5 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
   openStartButton.addEventListener('click', () => {
     mainContent1.classList.toggle('active');
     mainContent2.classList.toggle('active');
+    
+    // Toggle icon based on which content is active
+    if (mainContent2.classList.contains('active')) {
+      openStartIcon.classList.remove('fa-chevron-left');
+      openStartIcon.classList.add('fa-chevron-right');
+      openStartButton.setAttribute('aria-label', 'Go Back');
+      window.electronAPI.resizeWindow(440, 600, -40); // Wider and move left
+    } else {
+      openStartIcon.classList.remove('fa-chevron-right');
+      openStartIcon.classList.add('fa-chevron-left');
+      openStartButton.setAttribute('aria-label', 'Open Start');
+      window.electronAPI.resizeWindow(400, 600, 40); // Original size and move right
+    }
   });
 });

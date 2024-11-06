@@ -1,25 +1,37 @@
 'use strict';
 
-const { app, BrowserWindow, ipcMain, Tray, Menu, Notification } = require('electron');
+const { app, BrowserWindow, ipcMain, Tray, Menu, Notification, screen } = require('electron');
 const path = require('path');
 
 let mainWindow;
 let tray;
 
 function createWindow() {
+  // Get primary display dimensions
+  const { width: screenWidth, height: screenHeight } = screen.getPrimaryDisplay().workAreaSize;
+  
+  // Create the window
   mainWindow = new BrowserWindow({
     width: 400,
     height: 600,
     resizable: false,
+    movable: false,
     frame: false,
+    maximizable: false,
+    minimizable: true,
     icon: path.join(__dirname, '../../assets/images/favicons/favicon.ico'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
     },
-    title: 'PEARDESK'
+    title: 'PEARDESK',
+    x: screenWidth - 400 - 20,
+    y: screenHeight - 600 - 20
   });
+
+  // Prevent double-click from maximizing window
+  mainWindow.setMaximizable(false);
 
   const indexPath = path.join(__dirname, '..', 'index.html');
   mainWindow.loadFile(indexPath);
@@ -102,6 +114,17 @@ app.whenReady().then(() => {
 
   ipcMain.on('close-window', () => {
     app.quit();
+  });
+
+  // Add new resize handler
+  ipcMain.on('resize-window', (_, { width, height, moveX }) => {
+    const [currentX, currentY] = mainWindow.getPosition();
+    mainWindow.setBounds({
+      width: width,
+      height: height,
+      x: currentX + moveX,
+      y: currentY
+    }, true); // true enables animation
   });
 
   // Prevent window from being destroyed when closed
