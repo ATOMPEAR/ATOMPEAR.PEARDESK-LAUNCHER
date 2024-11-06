@@ -24,31 +24,60 @@ function createWindow() {
   mainWindow.loadFile(indexPath);
 }
 
-function createTray() {
-  tray = new Tray(path.join(__dirname, '../../assets/images/favicons/favicon.ico'));
-  
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: 'Show App',
+function updateTrayMenu() {
+  const menuTemplate = [];
+
+  // Add Show/Hide based on window visibility
+  if (!mainWindow.isVisible()) {
+    menuTemplate.push({
+      label: 'Show',
       click: () => {
         mainWindow.show();
       }
-    },
+    });
+  } else {
+    menuTemplate.push({
+      label: 'Hide',
+      click: () => {
+        mainWindow.hide();
+        showNotification();
+      }
+    });
+  }
+
+  menuTemplate.push(
+    { type: 'separator' },
     {
-      label: 'Quit',
+      label: 'Close',
       click: () => {
         app.quit();
       }
     }
-  ]);
+  );
 
-  tray.setToolTip('Electron App');
+  const contextMenu = Menu.buildFromTemplate(menuTemplate);
   tray.setContextMenu(contextMenu);
+}
+
+function createTray() {
+  tray = new Tray(path.join(__dirname, '../../assets/images/favicons/favicon.ico'));
+  
+  tray.setToolTip('Electron App');
+  updateTrayMenu();
 
   // Double click on tray icon shows the window
   tray.on('double-click', () => {
-    mainWindow.show();
+    if (mainWindow.isVisible()) {
+      mainWindow.hide();
+      showNotification();
+    } else {
+      mainWindow.show();
+    }
   });
+
+  // Update menu when window state changes
+  mainWindow.on('show', updateTrayMenu);
+  mainWindow.on('hide', updateTrayMenu);
 }
 
 function showNotification() {
@@ -66,12 +95,12 @@ app.whenReady().then(() => {
 
   // Handle window controls
   ipcMain.on('minimize-window', () => {
-    mainWindow.hide(); // Hide instead of minimize
+    mainWindow.hide();
     showNotification();
   });
 
   ipcMain.on('close-window', () => {
-    app.quit(); // Quit the entire application
+    app.quit();
   });
 
   // Prevent window from being destroyed when closed
