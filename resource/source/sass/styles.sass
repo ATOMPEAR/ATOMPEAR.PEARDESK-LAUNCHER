@@ -82,17 +82,23 @@ html, body
   background-position: center
   background-repeat: no-repeat
 
-  &:hover
-    opacity: 0.8
-
   &-options
     background-color: $options-button-color
+
+    &:hover
+      background-color: $accent-color
 
   &-minimize
     background-color: $minimize-button-color
 
+    &:hover
+      background-color: $accent-color
+
   &-close
     background-color: $close-button-color
+
+    &:hover
+      background-color: $accent-color
 
   &-openstart
     color: white
@@ -178,9 +184,10 @@ html, body
 
     .programs-list
       height: 100%
-      flex: 0 0 220px
+      flex: 0 0 215px
       background-color: #ffffff
       display: flex
+      border-left: 5px solid #222222
       flex-direction: column
       color: #222222
 

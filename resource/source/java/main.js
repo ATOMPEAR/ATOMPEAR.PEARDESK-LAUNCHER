@@ -3,6 +3,8 @@
 const { app, BrowserWindow, ipcMain, Tray, Menu, Notification, screen } = require('electron');
 const path = require('path');
 
+app.name = 'PEARDESK';
+
 let mainWindow;
 let tray;
 
@@ -17,6 +19,7 @@ function createWindow() {
     resizable: false,
     movable: false,
     frame: false,
+    title: 'PEARDESK',
     maximizable: false,
     minimizable: true,
     icon: path.join(__dirname, '../../assets/images/favicons/favicon.ico'),
@@ -25,10 +28,11 @@ function createWindow() {
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
     },
-    title: 'PEARDESK',
     x: screenWidth - 400 - 20,
     y: screenHeight - 600 - 20
   });
+
+  mainWindow.setTitle('PEARDESK');
 
   // Prevent double-click from maximizing window
   mainWindow.setMaximizable(false);
