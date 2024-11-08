@@ -55,11 +55,19 @@ html, body
     display: flex
     align-items: center
     gap: 10px
+    flex: 1
 
   &-title
     color: white
     font-size: 14px
     text-transform: uppercase
+    font-family: 'Ubuntu', sans-serif
+    font-weight: 300
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    text-align: center
+    pointer-events: none
 
   &-controls
     display: flex
@@ -68,6 +76,8 @@ html, body
     height: 100%
     align-items: center
     margin-right: 2px
+    flex: 1
+    justify-content: flex-end
 
 .titlebar-button
   width: $control-button-size
@@ -197,13 +207,14 @@ html, body
   .content1-content
     background-color: inherit
     width: 100%
-    flex: 1 1 auto
+    flex: 1
     display: flex
     flex-direction: row
     flex-wrap: nowrap
     align-items: stretch
-    transition: height 0.3s ease
-    height: calc(100% - 32px)
+    height: 0
+    min-height: 0
+    overflow: hidden
 
     .programs-list
       height: 100%
@@ -215,6 +226,7 @@ html, body
       color: #222222
       overflow-y: auto
       overflow-x: hidden
+      min-height: 0
       
       &-spacer
         min-height: 200vh
@@ -243,7 +255,6 @@ html, body
         align-items: center
         justify-content: space-between
         transition: all 0.2s ease
-        cursor: pointer
         
         &:not(:first-child)
           margin-top: 5px
@@ -252,7 +263,7 @@ html, body
           background-color: inherit
           
           .button-text
-            color: $accent-color
+            color: #FFFFFF
           
           i
             &::before
