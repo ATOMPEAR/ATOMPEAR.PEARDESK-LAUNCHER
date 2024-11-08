@@ -1,0 +1,395 @@
+@use 'imports/font/terminus'
+@use 'imports/font/ubuntu'
+@use 'imports/scrollbar/programs'
+
+// Variables
+$primary-color: #222222
+$secondary-color: #c0c0c0
+$accent-color: #01a2ff
+
+$text-color: #FFFFFF
+$background-color: #fff
+$titlebar-height: 32px
+$close-button-color: #ff5f57
+$minimize-button-color: #ffbd2e
+$options-button-color: #28c940
+$control-button-size: 12px
+$dropdown-bg: #fff
+$dropdown-text: #333
+$dropdown-hover: #222222
+$dropdown-border: #ffffff
+
+// Base styles
+.app
+  margin: 0
+  padding: 0
+  font-family: 'Terminus', monospace
+  font-weight: normal
+  background-color: $secondary-color
+  color: $text-color
+  user-select: none
+  height: 100vh
+  overflow: hidden
+
+html, body
+  margin: 0
+  padding: 0
+  overflow: hidden
+
+// Titlebar
+.titlebar
+  height: $titlebar-height
+  background-color: $primary-color
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 10px
+  -webkit-app-region: drag
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1000
+
+  &-left
+    display: flex
+    align-items: center
+    gap: 10px
+    flex: 1
+
+  &-title
+    color: white
+    font-size: 14px
+    text-transform: uppercase
+    font-family: 'Ubuntu', sans-serif
+    font-weight: 300
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    text-align: center
+    pointer-events: none
+
+  &-controls
+    display: flex
+    gap: 8px
+    -webkit-app-region: no-drag
+    height: 100%
+    align-items: center
+    margin-right: 2px
+    flex: 1
+    justify-content: flex-end
+
+.titlebar-button
+  width: $control-button-size
+  height: $control-button-size
+  border-radius: 50%
+  border: none
+  transition: opacity 0.2s
+  padding: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 0
+  background-position: center
+  background-repeat: no-repeat
+
+  &-options
+    background-color: $options-button-color
+
+    &:hover
+      background-color: $accent-color
+
+  &-minimize
+    background-color: $minimize-button-color
+
+    &:hover
+      background-color: $accent-color
+
+  &-close
+    background-color: $close-button-color
+
+    &:hover
+      background-color: $accent-color
+
+  &-openstart
+    color: white
+    background: transparent
+    font-size: 14px
+    width: auto
+    height: auto
+    -webkit-app-region: no-drag
+    
+    &:hover
+      color: $accent-color
+
+    i
+      pointer-events: none
+
+// Dropdown styles
+.options-dropdown
+  display: none
+  position: absolute
+  top: 100%
+  right: 5px
+  background-color: $dropdown-bg
+  border: 2px solid $dropdown-border
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1)
+  z-index: 1001
+  min-width: 100px
+  overflow: hidden
+
+  .titlebar-button-options.active + &
+    display: block
+
+  &-item
+    padding: 8px 12px
+    color: $dropdown-text
+    font-size: 13px
+    transition: background-color 0.2s
+    white-space: nowrap
+
+    &:hover
+      background-color: $dropdown-hover
+      color: #ffffff
+
+// Main content styles
+.main-content1
+  position: fixed
+  top: $titlebar-height
+  left: 0
+  right: 0
+  bottom: 50px
+  width: 100%
+  height: calc(100vh - #{$titlebar-height})
+  background-color: #ffffff
+  display: flex
+  flex-direction: column
+
+  .search-commands
+    width: 100%
+    height: 32px
+    background-color: #222222
+    display: none
+    flex-direction: row
+    align-items: center
+    flex-shrink: 0
+    color: #ffffff
+    padding: 0 10px
+
+    &.visible
+      display: flex
+    
+    .search-input
+      width: 370px
+      height: 24px
+      margin-left: -5px
+      background-color: #222222
+      border: none
+      outline: none
+      color: #ffffff
+      text-transform: uppercase
+      font-family: 'Terminus', monospace
+      font-size: 12px
+      padding: 0 8px
+      transition: color 0.2s ease
+      
+      &::placeholder
+        color: #888888
+      
+      &:focus
+        background-color: inherit
+        color: $accent-color
+      
+      &:not(:placeholder-shown)
+        color: $accent-color
+
+  .content1-content
+    background-color: inherit
+    width: 100%
+    flex: 1
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: stretch
+    height: 0
+    min-height: 0
+    overflow: hidden
+
+    .programs-list
+      height: 100%
+      flex: 0 0 215px
+      background-color: #ffffff
+      display: flex
+      border-left: 5px solid #222222
+      flex-direction: column
+      color: #222222
+      overflow-y: auto
+      overflow-x: hidden
+      min-height: 0
+      
+      &-spacer
+        min-height: 200vh
+        width: 100%
+        background: transparent
+
+    .systems-menu
+      height: 100%
+      flex: 0 0 180px
+      background-color: #222222
+      display: flex
+      flex-direction: column
+      color: #ffffff
+      padding: 5px
+      gap: 0
+      
+      &-button
+        width: 160px
+        height: 32px
+        margin-top: -5px
+        margin-left: 5px
+        background: transparent
+        border: none
+        color: #ffffff
+        display: flex
+        align-items: center
+        justify-content: space-between
+        transition: all 0.2s ease
+        
+        &:not(:first-child)
+          margin-top: 5px
+        
+        &:hover
+          background-color: inherit
+          
+          .button-text
+            color: #FFFFFF
+          
+          i
+            &::before
+              content: "\f07c"
+              font-family: "Font Awesome 6 Free"
+              font-weight: 900
+        
+        .button-text
+          font-size: 12px
+          font-family: 'Terminus', monospace
+          text-transform: uppercase
+          transition: color 0.2s ease
+        
+        i
+          font-size: 12px
+          transition: all 0.2s ease
+          color: #ffffff
+
+  .content1-footer
+    width: 100%
+    height: 32px
+    background-color: #222222
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: nowrap
+    flex-shrink: 0
+    color: #ffffff
+    
+.main-content2
+  position: fixed
+  top: $titlebar-height
+  left: 0
+  right: 0
+  bottom: 50px
+  width: 100%
+  height: calc(100vh - #{$titlebar-height})
+  background-color: #ffffff
+  display: none
+  flex-direction: row
+
+  &.active
+    display: flex
+
+  .startmenu
+    width: 32px
+    height: 100%
+    background-color: #222222
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    gap: 5px
+    padding: 5px 0
+    
+    &-button
+      width: 100%
+      height: 32px
+      border: none
+      margin-top: -5px
+      background: transparent
+      color: #ffffff
+      display: flex
+      align-items: center
+      justify-content: center
+      transition: all 0.2s ease
+      position: relative
+      
+      &:hover
+        background-color: #444444
+        
+        &::after
+          content: attr(aria-label)
+          position: absolute
+          left: calc(100% + 8px)
+          top: 50%
+          text-transform: uppercase
+          font-family: 'Terminus', monospace
+          transform: translateY(-50%)
+          background-color: #222222
+          color: #ffffff
+          padding: 4px 8px
+          border-radius: 4px
+          font-size: 12px
+          white-space: nowrap
+          z-index: 1000
+          pointer-events: none
+      
+      &.active
+        color: $accent-color
+        
+      i
+        font-size: 12px
+
+  .startmenu-content
+    flex: 1
+    height: 100%
+    background-color: #ffffff
+    position: relative
+    margin: 0
+    padding: 0
+    
+    .content-area
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      display: none
+      margin: 0
+      padding: 0
+      background-color: #ffffff
+      
+      &.active
+        display: flex
+        flex-direction: column
+      
+      h2
+        color: #222222
+        margin: 0 0 20px 0
+        font-size: 18px
+
+// Responsive design
+@media (max-width: 768px)
+  .main-content
+    padding: 0.5rem
+
+  .content-section
+    padding: 0.5rem
