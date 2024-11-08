@@ -224,7 +224,7 @@ html, body
     display: flex
 
   .startmenu
-    width: 40px
+    width: 32px
     height: 100%
     background-color: #222222
     flex-shrink: 0
@@ -235,7 +235,7 @@ html, body
     
     &-button
       width: 100%
-      height: 40px
+      height: 32px
       border: none
       margin-top: -5px
       background: transparent
@@ -245,15 +245,33 @@ html, body
       justify-content: center
       cursor: pointer
       transition: all 0.2s ease
+      position: relative
       
       &:hover
         background-color: #444444
+        
+        &::after
+          content: attr(aria-label)
+          position: absolute
+          left: calc(100% + 8px)
+          top: 50%
+          text-transform: uppercase
+          font-family: 'Terminus', monospace
+          transform: translateY(-50%)
+          background-color: #222222
+          color: #ffffff
+          padding: 4px 8px
+          border-radius: 4px
+          font-size: 12px
+          white-space: nowrap
+          z-index: 1000
+          pointer-events: none
       
       &.active
         color: $accent-color
         
       i
-        font-size: 16px
+        font-size: 12px
 
   .startmenu-content
     flex: 1
