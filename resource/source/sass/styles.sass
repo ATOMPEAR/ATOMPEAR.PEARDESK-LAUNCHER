@@ -1,5 +1,6 @@
-@use 'fonts/terminus'
-@use 'fonts/ubuntu'
+@use 'imports/font/terminus'
+@use 'imports/font/ubuntu'
+@use 'imports/scrollbar/programs'
 
 // Variables
 $primary-color: #222222
@@ -22,7 +23,7 @@ $dropdown-border: #ffffff
 .app
   margin: 0
   padding: 0
-  font-family: 'Ubuntu', monospace
+  font-family: 'Terminus', monospace
   font-weight: normal
   background-color: $secondary-color
   color: $text-color
@@ -164,9 +165,28 @@ html, body
     align-items: center
     flex-shrink: 0
     color: #ffffff
+    padding: 0 10px
 
     &.visible
       display: flex
+    
+    .search-input
+      width: 370px
+      height: 24px
+      margin-left: -5px
+      background-color: #222222
+      border: none
+      outline: none
+      color: #ffffff
+      font-family: 'Terminus', monospace
+      font-size: 12px
+      padding: 0 8px
+      
+      &::placeholder
+        color: #888888
+      
+      &:focus
+        background-color: #555555
 
   .content1-content
     background-color: inherit
@@ -187,6 +207,13 @@ html, body
       border-left: 5px solid #222222
       flex-direction: column
       color: #222222
+      overflow-y: auto
+      overflow-x: hidden
+      
+      &-spacer
+        min-height: 200vh
+        width: 100%
+        background: transparent
 
     .systems-menu
       height: 100%
@@ -194,7 +221,41 @@ html, body
       background-color: #222222
       display: flex
       flex-direction: column
-      color: #fffffff
+      color: #ffffff
+      padding: 5px
+      gap: 5px
+      
+      &-button
+        width: 160px
+        height: 32px
+        margin-top: -5px
+        margin-left: 5px
+        background: transparent
+        border: none
+        color: #ffffff
+        display: flex
+        align-items: center
+        justify-content: space-between
+        transition: all 0.2s ease
+        cursor: pointer
+        
+        &:hover
+          background-color: #444444
+          
+          i
+            &::before
+              content: "\f07c"  // Open folder icon
+              font-family: "Font Awesome 6 Free"
+              font-weight: 900
+        
+        .button-text
+          font-size: 12px
+          font-family: 'Terminus', monospace
+          text-transform: uppercase
+        
+        i
+          font-size: 12px
+          transition: all 0.2s ease
 
   .content1-footer
     width: 100%
@@ -243,7 +304,6 @@ html, body
       display: flex
       align-items: center
       justify-content: center
-      cursor: pointer
       transition: all 0.2s ease
       position: relative
       

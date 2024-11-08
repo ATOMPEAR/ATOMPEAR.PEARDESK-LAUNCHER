@@ -69,12 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
       openStartIcon.classList.remove('fa-bars');
       openStartIcon.classList.add('fa-bars');
       openStartButton.setAttribute('aria-label', 'Go Back');
-      window.electronAPI.resizeWindow(440, 600, -40); // Wider and move left
     } else {
       openStartIcon.classList.remove('fa-bars');
       openStartIcon.classList.add('fa-bars');
       openStartButton.setAttribute('aria-label', 'Open Start');
-      window.electronAPI.resizeWindow(400, 600, 40); // Original size and move right
     }
   });
 
