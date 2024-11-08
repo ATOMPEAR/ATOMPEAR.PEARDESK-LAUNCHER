@@ -178,15 +178,21 @@ html, body
       border: none
       outline: none
       color: #ffffff
+      text-transform: uppercase
       font-family: 'Terminus', monospace
       font-size: 12px
       padding: 0 8px
+      transition: color 0.2s ease
       
       &::placeholder
         color: #888888
       
       &:focus
-        background-color: #555555
+        background-color: inherit
+        color: $accent-color
+      
+      &:not(:placeholder-shown)
+        color: $accent-color
 
   .content1-content
     background-color: inherit
@@ -223,7 +229,7 @@ html, body
       flex-direction: column
       color: #ffffff
       padding: 5px
-      gap: 5px
+      gap: 0
       
       &-button
         width: 160px
@@ -239,12 +245,18 @@ html, body
         transition: all 0.2s ease
         cursor: pointer
         
+        &:not(:first-child)
+          margin-top: 5px
+        
         &:hover
-          background-color: #444444
+          background-color: inherit
+          
+          .button-text
+            color: $accent-color
           
           i
             &::before
-              content: "\f07c"  // Open folder icon
+              content: "\f07c"
               font-family: "Font Awesome 6 Free"
               font-weight: 900
         
@@ -252,10 +264,12 @@ html, body
           font-size: 12px
           font-family: 'Terminus', monospace
           text-transform: uppercase
+          transition: color 0.2s ease
         
         i
           font-size: 12px
           transition: all 0.2s ease
+          color: #ffffff
 
   .content1-footer
     width: 100%
