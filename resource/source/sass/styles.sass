@@ -152,11 +152,8 @@ html, body
   width: 100%
   height: calc(100vh - #{$titlebar-height})
   background-color: #ffffff
-  display: none
+  display: flex
   flex-direction: column
-
-  &.active
-    display: flex
 
   .search-commands
     width: 100%
@@ -221,17 +218,70 @@ html, body
   height: calc(100vh - #{$titlebar-height})
   background-color: #ffffff
   display: none
-  flex-direction: column
+  flex-direction: row
 
   &.active
     display: flex
 
-  .content2-content
-    background-color: inherit
-    width: 100%
-    flex: 1 1 auto
+  .startmenu
+    width: 40px
+    height: 100%
+    background-color: #222222
+    flex-shrink: 0
     display: flex
     flex-direction: column
+    gap: 5px
+    padding: 5px 0
+    
+    &-button
+      width: 100%
+      height: 40px
+      border: none
+      margin-top: -5px
+      background: transparent
+      color: #ffffff
+      display: flex
+      align-items: center
+      justify-content: center
+      cursor: pointer
+      transition: all 0.2s ease
+      
+      &:hover
+        background-color: #444444
+      
+      &.active
+        color: $accent-color
+        
+      i
+        font-size: 16px
+
+  .startmenu-content
+    flex: 1
+    height: 100%
+    background-color: #ffffff
+    position: relative
+    margin: 0
+    padding: 0
+    
+    .content-area
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      display: none
+      margin: 0
+      padding: 0
+      background-color: #ffffff
+      
+      &.active
+        display: flex
+        flex-direction: column
+      
+      h2
+        color: #222222
+        margin: 0 0 20px 0
+        font-size: 18px
 
 // Responsive design
 @media (max-width: 768px)

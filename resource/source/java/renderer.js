@@ -77,4 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
       window.electronAPI.resizeWindow(400, 600, 40); // Original size and move right
     }
   });
+
+  // Add startmenu button functionality
+  const startmenuButtons = document.querySelectorAll('.startmenu-button');
+  const contentAreas = document.querySelectorAll('.content-area');
+
+  startmenuButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons and content areas
+      startmenuButtons.forEach(btn => btn.classList.remove('active'));
+      contentAreas.forEach(content => content.classList.remove('active'));
+
+      // Add active class to clicked button and corresponding content
+      button.classList.add('active');
+      const contentId = button.getAttribute('data-content');
+      document.querySelector(`.content-area.${contentId}`).classList.add('active');
+    });
+  });
 });

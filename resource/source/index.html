@@ -47,7 +47,33 @@
     </main>
 
     <main class="main-content2" role="main">
-        <div class="content2-content">
+        <nav class="startmenu" role="navigation">
+            <button class="startmenu-button active" data-content="home" aria-label="Home">
+                <i class="fa-solid fa-house"></i>
+            </button>
+            <button class="startmenu-button" data-content="settings" aria-label="Settings">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+            <button class="startmenu-button" data-content="calculator" aria-label="Calculator">
+                <i class="fa-solid fa-calculator"></i>
+            </button>
+            <button class="startmenu-button" data-content="terminal" aria-label="Terminal">
+                <i class="fa-solid fa-terminal"></i>
+            </button>
+        </nav>
+        <div class="startmenu-content">
+            <div class="content-area home active" role="region" aria-label="Home Content">
+                <h2>Home</h2>
+            </div>
+            <div class="content-area settings" role="region" aria-label="Settings Content">
+                <h2>Settings</h2>
+            </div>
+            <div class="content-area calculator" role="region" aria-label="Calculator Content">
+                <h2>Calculator</h2>
+            </div>
+            <div class="content-area terminal" role="region" aria-label="Terminal Content">
+                <h2>Terminal</h2>
+            </div>
         </div>
     </main>
 
