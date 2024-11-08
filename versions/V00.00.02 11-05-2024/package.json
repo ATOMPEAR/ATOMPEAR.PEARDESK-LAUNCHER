@@ -1,0 +1,19 @@
+{
+  "name": "peardesk-launcher",
+  "version": "00.00.02",
+  "description": "Application Launcher for AtomPear PearDesk",
+  "main": "resource/source/java/main.js",
+  "scripts": {
+    "start": "nodemon --exec electron .",
+    "sass": "sass --watch --style=compressed resource/source/sass/styles.sass:resource/source/com/styles.min.css --no-source-map",
+    "dev": "concurrently --kill-others \"npm run sass\" \"npm run start\""
+  },
+  "dependencies": {
+    "electron": "29.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "9.0.1",
+    "nodemon": "3.1.7",
+    "sass": "1.80.5"
+  }
+}

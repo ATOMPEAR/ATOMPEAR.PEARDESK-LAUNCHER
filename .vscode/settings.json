@@ -1,0 +1,40 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.compactFolders": false,
+
+    "explorer.pinnedFolders": [
+        {
+            "id": "peardesk-launcher",
+            "paths": [
+                "resource/source/index.html",
+                "resource/source/sass/styles.sass",
+                "resource/source/java/main.js",
+                "resource/source/java/renderer.js",
+                "resource/source/java/preload.js",
+                "package.json",
+                "nodemon.json"
+            ]
+        }
+    ],
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+
+    "workbench.startupEditor": "none",
+    "workbench.layoutControl.enabled": true,
+    "workbench.statusBar.visible": true,
+    "workbench.sideBar.location": "left",
+    "terminal.integrated.defaultLocation": "editor",
+    "workbench.panel.defaultLocation": "bottom",
+
+    "workbench.editorAssociations": {
+        "*.md": "vscode.markdown.preview.editor"
+    }
+}
