@@ -140,4 +140,105 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButton.addEventListener('click', () => {
         window.electronAPI.closeWindow();
     });
+
+    // Add search functionality with help command
+    const searchInput = document.querySelector('.search-input');
+    
+    // Define available commands
+    const commands = [
+        { command: '/search', description: 'Search for programs (e.g., /search firefox)' },
+        { command: '/help', description: 'Show this help menu' }
+        // Add more commands here as needed
+    ];
+
+    // Function to show help menu
+    function showHelpMenu() {
+        const programsList = document.querySelector('.programs-list-items');
+        programsList.innerHTML = `
+            <li class="help-header">
+                <button class="programs-list-button">
+                    <span class="button-text">Available Commands:</span>
+                </button>
+            </li>
+            ${commands.map(cmd => `
+                <li>
+                    <button class="programs-list-button help-command" data-command="${cmd.command}">
+                        <span class="button-text">${cmd.command}</span>
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                    <div class="command-description">${cmd.description}</div>
+                </li>
+            `).join('')}
+        `;
+
+        // Add click handlers for command buttons
+        const commandButtons = programsList.querySelectorAll('.help-command');
+        commandButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const command = button.getAttribute('data-command');
+                searchInput.value = command + ' ';
+                searchInput.focus();
+                
+                // If it's the search command, show all programs
+                if (command === '/search') {
+                    loadProgramsList();
+                }
+            });
+        });
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const programButtons = document.querySelectorAll('.programs-list-button');
+        
+        if (searchTerm === '/help') {
+            showHelpMenu();
+        } else if (searchTerm.startsWith('/search ')) {
+            // Reset to normal program list if it was showing help
+            if (document.querySelector('.help-header')) {
+                loadProgramsList();
+            }
+            
+            const actualSearchTerm = searchTerm.replace('/search ', '');
+            programButtons.forEach(button => {
+                const buttonText = button.querySelector('.button-text').textContent.toLowerCase();
+                const listItem = button.closest('li');
+                
+                if (buttonText.includes(actualSearchTerm)) {
+                    listItem.style.display = 'block';
+                } else {
+                    listItem.style.display = 'none';
+                }
+            });
+        } else {
+            // If not a command, show all programs
+            if (document.querySelector('.help-header')) {
+                loadProgramsList();
+            }
+            programButtons.forEach(button => {
+                button.closest('li').style.display = 'block';
+            });
+        }
+    });
+
+    // Add keyboard shortcut to focus search
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '/' && !searchCommands.classList.contains('visible')) {
+            e.preventDefault();
+            searchCommands.classList.add('visible');
+            searchInput.focus();
+            searchInput.value = '/search '; // Pre-fill with search command
+        } else if (e.key === 'Escape' && searchCommands.classList.contains('visible')) {
+            searchCommands.classList.remove('visible');
+            searchInput.value = '';
+            // Reset visibility of all program items
+            const programButtons = document.querySelectorAll('.programs-list-button');
+            programButtons.forEach(button => {
+                button.closest('li').style.display = 'block';
+            });
+        }
+    });
+
+    // Update placeholder text
+    searchInput.setAttribute('placeholder', 'Type /search to filter programs');
 });
