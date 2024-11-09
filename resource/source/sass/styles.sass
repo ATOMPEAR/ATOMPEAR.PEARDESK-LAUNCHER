@@ -228,6 +228,50 @@ html, body
       overflow-x: hidden
       min-height: 0
       
+      &-items
+        display: flex
+        flex-direction: column
+        padding: 5px
+        gap: 5px
+        list-style: none
+        margin: 0
+        
+        li
+            padding: 0
+            margin: 0
+    
+      &-button
+        width: 100%
+        height: 32px
+        background: transparent
+        border: none
+        color: #222222
+        display: flex
+        align-items: center
+        padding: 0 10px
+        transition: all 0.2s ease
+        font-family: 'Terminus', monospace
+        text-transform: uppercase
+        font-size: 12px
+        cursor: pointer
+        
+        &:hover
+            background-color: #222222
+            color: #ffffff
+            
+            .button-text
+                color: #ffffff
+        
+        .button-icon
+            width: 16px
+            height: 16px
+            margin-right: 10px
+        
+        .button-text
+            flex: 1
+            text-align: left
+            transition: color 0.2s ease
+    
       &-spacer
         min-height: 200vh
         width: 100%

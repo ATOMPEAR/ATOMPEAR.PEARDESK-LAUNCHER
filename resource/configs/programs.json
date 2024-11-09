@@ -5,10 +5,7 @@
 			"name":        "Android Studio",
             "id":          "android-studio-portable",
 			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			
-            "rootPath":    "../../storage/program/portapps/android-studio-portable/",
-			"iconPath":    "../../storage/program/portapps/android-studio-portable/favicon.ico",
-            "exePath":     "../../storage/program/portapps/pandroid-studio-portable/android-studio-portable.exe"
+            "icon": "fa-globe"
         },
 
         {
@@ -16,10 +13,7 @@
 			"name":        "Beaker Browser",
             "id":          "beaker-browser-portable",
 			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			
-            "rootPath":    "../../storage/program/portapps/beaker-browser-portable/",
-			"iconPath":    "../../storage/program/portapps/beaker-browser-portable/favicon.ico",
-            "exePath":     "../../storage/program/portapps/beaker-browser-portable/beaker-browser-portable.exe"
+			"icon": "fa-gear"
         },
 		
 		{
@@ -27,10 +21,7 @@
 			"name":        "Brave",
             "id":          "brave-portable",
 			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			
-            "rootPath":    "../../storage/program/portapps/brave-portable/",
-			"iconPath":    "../../storage/program/portapps/brave-portable/favicon.ico",
-            "exePath":     "../../storage/program/portapps/brave-portable/brave-portable.exe"
+			"icon": "fa-dev"
         },
 		
 		{
@@ -38,10 +29,7 @@
 			"name":        "Caprine",
             "id":          "caprine-portable",
 			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			
-            "rootPath":    "../../storage/program/portapps/caprine-portable/",
-			"iconPath":    "../../storage/program/portapps/caprine-portable/favicon.ico",
-            "exePath":     "../../storage/program/portapps/caprine-portable/caprine-portable.exe"
+			"icon": "fa-pen"
         }
     ]
 }

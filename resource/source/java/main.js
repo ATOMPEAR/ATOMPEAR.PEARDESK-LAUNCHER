@@ -24,8 +24,9 @@ function createWindow() {
     minimizable: true,
     icon: path.join(__dirname, '../../assets/images/favicons/favicon.ico'),
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
+      enableRemoteModule: true,
       preload: path.join(__dirname, 'preload.js')
     },
     x: screenWidth - 400 - 20,
@@ -158,6 +159,12 @@ app.whenReady().then(() => {
         console.log('Quick commands clicked');
         break;
     }
+  });
+
+  // Add IPC handlers for program-related actions
+  ipcMain.on('launch-program', (event, program) => {
+    console.log('Launching program:', program);
+    // Add program launch logic here
   });
 });
 
