@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const li = document.createElement('li');
                     li.innerHTML = `
                         <button class="programs-list-button" data-program-id="${program.id}">
-                            <i class="fa-solid ${program.icon}"></i>
                             <span class="button-text">${program.name}</span>
+                            <i class="fa-solid ${program.icon}"></i>
                         </button>
                     `;
                     programsList.appendChild(li);

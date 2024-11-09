@@ -232,13 +232,17 @@ html, body
         display: flex
         flex-direction: column
         padding: 5px
-        gap: 5px
+        gap: 0
         list-style: none
         margin: 0
         
         li
             padding: 0
             margin: 0
+            
+            &:first-child
+                .programs-list-button
+                    margin-top: 5px
     
       &-button
         width: 100%
@@ -248,12 +252,13 @@ html, body
         color: #222222
         display: flex
         align-items: center
+        justify-content: space-between
         padding: 0 10px
         transition: all 0.2s ease
         font-family: 'Terminus', monospace
         text-transform: uppercase
         font-size: 12px
-        cursor: pointer
+        cursor: default
         
         &:hover
             background-color: #222222
@@ -262,13 +267,11 @@ html, body
             .button-text
                 color: #ffffff
         
-        .button-icon
-            width: 16px
-            height: 16px
-            margin-right: 10px
+        i
+            font-size: 12px
+            margin-left: 10px
         
         .button-text
-            flex: 1
             text-align: left
             transition: color 0.2s ease
     
