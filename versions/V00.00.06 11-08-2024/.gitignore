@@ -1,0 +1,6 @@
+#THIS IS TO BE INSTALLED WITH "NPM INSTALL" BEFORE PROGRAM IS RAN
+node_modules/
+
+# IGNORE EVERYTHING IS PROGRAMS/ BUT DO NOT IGNORE .TEMP FILE
+storage/portapps/*
+!storage/portapps/.temp
