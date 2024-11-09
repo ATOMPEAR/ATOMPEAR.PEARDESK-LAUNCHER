@@ -51,5 +51,16 @@ contextBridge.exposeInMainWorld('electronAPI', {
             console.error('Error getting drive space:', error);
             return null;
         }
+    },
+    savePrograms: (programs) => {
+        try {
+            const programsPath = path.join(__dirname, '../../../resource/configs/programs.json');
+            const data = { programs };
+            fs.writeFileSync(programsPath, JSON.stringify(data, null, 4));
+            return true;
+        } catch (error) {
+            console.error('Error saving programs:', error);
+            return false;
+        }
     }
 });

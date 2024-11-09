@@ -526,3 +526,93 @@ html, body
         .drive-error
             color: #ff5f57
             font-size: 12px
+
+.metro-start
+    padding: 20px
+    height: 100%
+    overflow-y: auto
+    background-color: #222222
+    
+    &::-webkit-scrollbar
+        width: 5px
+        background-color: transparent
+    
+    &::-webkit-scrollbar-thumb
+        background-color: #222222
+        border-radius: 2.5px
+        
+        &:hover
+            background-color: #444444
+        
+        &:active
+            background-color: #01a2ff !important
+
+.metro-section
+    margin-bottom: 30px
+    
+    &-title
+        color: #ffffff
+        font-size: 16px
+        margin-bottom: 15px
+        text-transform: uppercase
+        font-family: 'Terminus', monospace
+        padding: 0 10px
+
+.metro-grid
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))
+    gap: 10px
+    padding: 0 10px
+    
+.metro-item
+    background: #333333
+    aspect-ratio: 1
+    border: 2px solid transparent
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding: 10px
+    position: relative
+    cursor: default
+    
+    &:hover
+        border-color: $accent-color
+        background: #444444
+        
+        .metro-item-pin
+            opacity: 1
+    
+    &-icon
+        font-size: 24px
+        color: #ffffff
+        margin-bottom: 10px
+        
+        &:hover
+            color: $accent-color
+    
+    &-name
+        color: #ffffff
+        font-size: 12px
+        text-align: center
+        font-family: 'Terminus', monospace
+        text-transform: uppercase
+    
+    &-pin
+        position: absolute
+        top: 5px
+        right: 5px
+        background: none
+        border: none
+        color: #ffffff
+        opacity: 0
+        transition: opacity 0.2s ease
+        padding: 4px
+        cursor: pointer
+        
+        &:hover
+            color: $accent-color
+        
+        &--active
+            opacity: 1
+            color: $accent-color

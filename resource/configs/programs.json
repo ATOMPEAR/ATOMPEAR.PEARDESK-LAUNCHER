@@ -1,379 +1,380 @@
 {
     "programs": [
         {
-			"category":    "portapps",
-			"name":        "android studio",
-            "id":          "android-studio-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "android studio",
+            "id": "android-studio-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": true
         },
-
         {
-			"category":    "portapps",
-			"name":        "beaker browser",
-            "id":          "beaker-browser-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "beaker browser",
+            "id": "beaker-browser-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": true
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "brave",
-            "id":          "brave-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "caprine",
-            "id":          "cryptomator-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "dbeaver",
-            "id":          "dbeaver-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "brave",
+            "id": "brave-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "discord",
-            "id":          "discord-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "caprine",
+            "id": "cryptomator-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "discord ptb",
-            "id":          "discord-ptb-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "drawio",
-            "id":          "drawio-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "element",
-            "id":          "element-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "dbeaver",
+            "id": "dbeaver-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "emby theater",
-            "id":          "emby-theater-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "discord",
+            "id": "discord-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "franz",
-            "id":          "franz-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "gnupg",
-            "id":          "gnupg-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "handbrake",
-            "id":          "handbrake-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "discord ptb",
+            "id": "discord-ptb-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "hostsman",
-            "id":          "hostsman-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "drawio",
+            "id": "drawio-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "innosetup",
-            "id":          "innosetup-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "insomnia",
-            "id":          "insomnia-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "intellij idea community",
-            "id":          "intellij-idea-community-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "element",
+            "id": "element-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "intellij idea ultimate",
-            "id":          "intellij-idea-ultimate-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "emby theater",
+            "id": "emby-theater-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "kitty",
-            "id":          "kitty-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "mirc",
-            "id":          "mirc-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "molotov",
-            "id":          "molotov-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "franz",
+            "id": "franz-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "mremoteng",
-            "id":          "mremoteng-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "gnupg",
+            "id": "gnupg-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "nextcloud",
-            "id":          "nextcloud-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "openvpn",
-            "id":          "openvpn-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "oracle jdk",
-            "id":          "oracle-jdk-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "handbrake",
+            "id": "handbrake-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "phyrox developer",
-            "id":          "phyrox-developer-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "hostsman",
+            "id": "hostsman-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "phyrox esr",
-            "id":          "phyrox-esr-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "phyrox",
-            "id":          "phyrox-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "postman",
-            "id":          "postman-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "innosetup",
+            "id": "innosetup-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "qbittorrent",
-            "id":          "qbittorrent-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "insomnia",
+            "id": "insomnia-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "rambox",
-            "id":          "rambox-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "rocketchat",
-            "id":          "rocketchat-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "signal",
-            "id":          "signal-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "intellij idea community",
+            "id": "intellij-idea-community-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "skype",
-            "id":          "skype-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "intellij idea ultimate",
+            "id": "intellij-idea-ultimate-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "smartgit",
-            "id":          "smartgit-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "stormhen",
-            "id":          "stormhen-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "tabby",
-            "id":          "tabby-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "kitty",
+            "id": "kitty-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "teamspeak client",
-            "id":          "teamspeak-client-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "mirc",
+            "id": "mirc-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "transmission",
-            "id":          "transmission-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "ueli",
-            "id":          "ueli-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "ungoogled chromium",
-            "id":          "ungoogled-chromium-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "molotov",
+            "id": "molotov-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "vlc",
-            "id":          "vlc-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "mremoteng",
+            "id": "mremoteng-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "vscode",
-            "id":          "vscode-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-		
-		{
-			"category":    "portapps",
-			"name":        "waterfox",
-            "id":          "waterfox-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
-        },
-
         {
-			"category":    "portapps",
-			"name":        "whatsapp",
-            "id":          "whatsapp-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-            "icon": "fa-globe"
+            "category": "portapps",
+            "name": "nextcloud",
+            "id": "nextcloud-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-
         {
-			"category":    "portapps",
-			"name":        "wire",
-            "id":          "wire-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+            "category": "portapps",
+            "name": "openvpn",
+            "id": "openvpn-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         },
-		
-		{
-			"category":    "portapps",
-			"name":        "wireshark",
-            "id":          "wireshark-portable",
-			"description": "This Is A Brief Description Of The Program And Its Purpose",
-			"icon": "fa-globe"
+        {
+            "category": "portapps",
+            "name": "oracle jdk",
+            "id": "oracle-jdk-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "phyrox developer",
+            "id": "phyrox-developer-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "phyrox esr",
+            "id": "phyrox-esr-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "phyrox",
+            "id": "phyrox-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "postman",
+            "id": "postman-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "qbittorrent",
+            "id": "qbittorrent-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "rambox",
+            "id": "rambox-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "rocketchat",
+            "id": "rocketchat-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "signal",
+            "id": "signal-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "skype",
+            "id": "skype-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "smartgit",
+            "id": "smartgit-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "stormhen",
+            "id": "stormhen-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "tabby",
+            "id": "tabby-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "teamspeak client",
+            "id": "teamspeak-client-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "transmission",
+            "id": "transmission-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "ueli",
+            "id": "ueli-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "ungoogled chromium",
+            "id": "ungoogled-chromium-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "vlc",
+            "id": "vlc-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "vscode",
+            "id": "vscode-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "waterfox",
+            "id": "waterfox-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "whatsapp",
+            "id": "whatsapp-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "wire",
+            "id": "wire-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
+        },
+        {
+            "category": "portapps",
+            "name": "wireshark",
+            "id": "wireshark-portable",
+            "description": "This Is A Brief Description Of The Program And Its Purpose",
+            "icon": "fa-globe",
+            "pinned": false
         }
     ]
 }
