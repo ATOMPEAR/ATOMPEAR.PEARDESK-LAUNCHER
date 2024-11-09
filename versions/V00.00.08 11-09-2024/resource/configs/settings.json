@@ -1,0 +1,12 @@
+{
+    "information": {
+        "name": "PEARDESK",
+        "version": "00.00.08"
+    },
+    "settings": {
+        "theme": "dark",
+        "language": "en",
+        "autoStart": false,
+        "alwaysOnTop": false
+    }
+}
