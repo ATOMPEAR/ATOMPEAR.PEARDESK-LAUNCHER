@@ -240,5 +240,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Update placeholder text
-    searchInput.setAttribute('placeholder', 'Type /search to filter programs');
+    searchInput.setAttribute('placeholder', 'TYPE /HELP FOR LIST OF COMMANDS');
 });
