@@ -1,84 +1,47 @@
 {
     "programs": [
         {
-            "id": "calculator",
-            "name": "Calculator",
-            "category": "Tools",
-            "command": "calculator",
-            "rootPath": "C:/Windows/System32",
-            "exePath": "C:/Windows/System32/calc.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "Basic calculator application for mathematical operations"
+			"category":    "portapps",
+			"name":        "Android Studio",
+            "id":          "android-studio-portable",
+			"description": "This Is A Brief Description Of The Program And Its Purpose",
+			
+            "rootPath":    "../../storage/program/portapps/android-studio-portable/",
+			"iconPath":    "../../storage/program/portapps/android-studio-portable/favicon.ico",
+            "exePath":     "../../storage/program/portapps/pandroid-studio-portable/android-studio-portable.exe"
         },
+
         {
-            "id": "terminal",
-            "name": "Terminal",
-            "category": "System",
-            "command": "terminal",
-            "rootPath": "C:/Windows/System32",
-            "exePath": "C:/Windows/System32/cmd.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "Command-line interface for system operations"
+			"category":    "portapps",
+			"name":        "Beaker Browser",
+            "id":          "beaker-browser-portable",
+			"description": "This Is A Brief Description Of The Program And Its Purpose",
+			
+            "rootPath":    "../../storage/program/portapps/beaker-browser-portable/",
+			"iconPath":    "../../storage/program/portapps/beaker-browser-portable/favicon.ico",
+            "exePath":     "../../storage/program/portapps/beaker-browser-portable/beaker-browser-portable.exe"
         },
-        {
-            "id": "settings",
-            "name": "Settings",
-            "category": "System",
-            "command": "settings",
-            "rootPath": "C:/Windows/System32",
-            "exePath": "C:/Windows/System32/control.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "System settings and configuration options"
+		
+		{
+			"category":    "portapps",
+			"name":        "Brave",
+            "id":          "brave-portable",
+			"description": "This Is A Brief Description Of The Program And Its Purpose",
+			
+            "rootPath":    "../../storage/program/portapps/brave-portable/",
+			"iconPath":    "../../storage/program/portapps/brave-portable/favicon.ico",
+            "exePath":     "../../storage/program/portapps/brave-portable/brave-portable.exe"
         },
-        {
-            "id": "text-editor",
-            "name": "Text Editor",
-            "category": "Tools",
-            "command": "text-editor",
-            "rootPath": "C:/Windows/System32",
-            "exePath": "C:/Windows/System32/notepad.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "Simple text editor for creating and editing files"
-        },
-        {
-            "id": "browser",
-            "name": "Browser",
-            "category": "Internet",
-            "command": "browser",
-            "rootPath": "C:/Program Files/Internet Explorer",
-            "exePath": "C:/Program Files/Internet Explorer/iexplore.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "Web browser for internet access"
-        },
-        {
-            "id": "file-explorer",
-            "name": "File Explorer",
-            "category": "System",
-            "command": "file-explorer",
-            "rootPath": "C:/Windows",
-            "exePath": "C:/Windows/explorer.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "Browse and manage system files and folders"
-        },
-        {
-            "id": "media-player",
-            "name": "Media Player",
-            "category": "Entertainment",
-            "command": "media-player",
-            "rootPath": "C:/Program Files/Windows Media Player",
-            "exePath": "C:/Program Files/Windows Media Player/wmplayer.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "Play audio and video files"
-        },
-        {
-            "id": "image-viewer",
-            "name": "Image Viewer",
-            "category": "Tools",
-            "command": "image-viewer",
-            "rootPath": "C:/Windows/System32",
-            "exePath": "C:/Windows/System32/mspaint.exe",
-            "icon": "./assets/images/favicons/favicon.png",
-            "description": "View and manage image files"
+		
+		{
+			"category":    "portapps",
+			"name":        "Caprine",
+            "id":          "caprine-portable",
+			"description": "This Is A Brief Description Of The Program And Its Purpose",
+			
+            "rootPath":    "../../storage/program/portapps/caprine-portable/",
+			"iconPath":    "../../storage/program/portapps/caprine-portable/favicon.ico",
+            "exePath":     "../../storage/program/portapps/caprine-portable/caprine-portable.exe"
         }
     ]
 }
