@@ -3,6 +3,8 @@
 const { contextBridge, ipcRenderer } = require('electron');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
+const checkDiskSpace = require('check-disk-space').default;
 
 contextBridge.exposeInMainWorld('electronAPI', {
     test: () => console.log('electronAPI is available'),
@@ -34,5 +36,20 @@ contextBridge.exposeInMainWorld('electronAPI', {
     openFolder: (folderName) => ipcRenderer.send('open-folder', folderName),
     minimizeWindow: () => ipcRenderer.send('minimize-window'),
     closeWindow: () => ipcRenderer.send('close-window'),
-    handleOptionsAction: (action) => ipcRenderer.send('options-action', action)
+    handleOptionsAction: (action) => ipcRenderer.send('options-action', action),
+    getDriveSpace: async () => {
+        try {
+            const currentDrive = path.parse(__dirname).root;
+            const space = await checkDiskSpace(currentDrive);
+            return {
+                total: space.size,
+                free: space.free,
+                used: space.size - space.free,
+                drive: currentDrive
+            };
+        } catch (error) {
+            console.error('Error getting drive space:', error);
+            return null;
+        }
+    }
 });

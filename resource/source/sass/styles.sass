@@ -469,3 +469,47 @@ html, body
         font-family: 'Terminus', monospace
         border-bottom: 1px solid #eeeeee
         margin-bottom: 5px
+
+.content1-footer
+    .drive-info
+        display: flex
+        align-items: center
+        gap: 10px
+        padding: 0 10px
+        width: 100%
+        
+        .drive-text
+            display: flex
+            flex-direction: column
+            min-width: 150px
+            
+            .drive-label
+                font-size: 12px
+                font-weight: bold
+                color: $accent-color
+            
+            .drive-details
+                font-size: 11px
+                color: #888888
+        
+        .drive-progress
+            flex: 1
+            height: 4px
+            background-color: #444444
+            border-radius: 2px
+            overflow: hidden
+            
+            &-bar
+                height: 100%
+                background-color: $accent-color
+                transition: width 0.3s ease
+        
+        .drive-free
+            font-size: 11px
+            color: #888888
+            min-width: 80px
+            text-align: right
+        
+        .drive-error
+            color: #ff5f57
+            font-size: 12px

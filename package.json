@@ -10,7 +10,8 @@
     "dev": "concurrently --kill-others \"npm run sass\" \"npm run start\""
   },
   "dependencies": {
-    "electron": "29.0.0"
+    "electron": "29.0.0",
+    "check-disk-space": "^3.4.0"
   },
   "devDependencies": {
     "concurrently": "9.0.1",
