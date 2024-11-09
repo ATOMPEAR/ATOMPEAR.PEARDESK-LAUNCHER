@@ -1,0 +1,21 @@
+{
+    "general": {
+        "rootPath": "resource",
+        "resourcePath": "resource",
+        "configsPath": "resource/configs"
+    },
+    "programs": {
+        "programsPath": "storage/program",
+        "portappPath": "portapps",
+        "portablePath": "portables"
+    },
+    "userData": {
+        "userDataPath": "storage/userdata",
+        "desktopPath": "storage/desktop",
+        "downloadsPath": "storage/downloads",
+        "documentsPath": "storage/documents",
+        "musicPath": "storage/music",
+        "videosPath": "storage/videos",
+        "picturesPath": "storage/pictures"
+    }
+}
