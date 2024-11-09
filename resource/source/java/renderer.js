@@ -114,6 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="fa-solid ${program.icon}"></i>
                         </button>
                     `;
+
+                    // Add click handler
+                    const button = li.querySelector('.programs-list-button');
+                    button.addEventListener('click', () => {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.programs-list-button').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        
+                        // Add active class to clicked button
+                        button.classList.add('active');
+                        
+                        // Remove active class after a delay
+                        setTimeout(() => {
+                            button.classList.remove('active');
+                        }, 1000);
+                    });
+
                     programsList.appendChild(li);
                 });
             }
@@ -249,6 +267,16 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const folderName = button.querySelector('.button-text').textContent;
             console.log(`Opening ${folderName} folder...`);
+            
+            // Add active state to clicked button
+            systemMenuButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Remove active state after a delay
+            setTimeout(() => {
+                button.classList.remove('active');
+            }, 1000);
+            
             window.electronAPI.openFolder(folderName);
         });
     });

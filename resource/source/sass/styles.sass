@@ -262,14 +262,21 @@ html, body
         
         &:hover
             background-color: #222222
-            color: #ffffff
             
             .button-text
                 color: #ffffff
+            
+            i
+                color: $accent-color
+        
+        &:active, &.active
+            .button-text, i
+                color: $accent-color
         
         i
             font-size: 12px
             margin-left: 10px
+            transition: color 0.2s ease
         
         .button-text
             text-align: left
@@ -310,19 +317,25 @@ html, body
           background-color: inherit
           
           .button-text
-            color: #FFFFFF
+            color: #ffffff
           
           i
+            color: $accent-color
             &::before
               content: "\f07c"
               font-family: "Font Awesome 6 Free"
               font-weight: 900
+        
+        &:active, &.active
+          .button-text, i
+            color: $accent-color
         
         .button-text
           font-size: 12px
           font-family: 'Terminus', monospace
           text-transform: uppercase
           transition: color 0.2s ease
+          color: #ffffff
         
         i
           font-size: 12px
