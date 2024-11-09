@@ -8,7 +8,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     test: () => console.log('electronAPI is available'),
     getPrograms: () => {
         try {
-            // Get the absolute path to programs.json
             const programsPath = path.join(__dirname, '../../../resource/configs/programs.json');
             console.log('Loading programs from:', programsPath);
             
@@ -31,5 +30,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
             console.error('Error loading programs:', error);
             return [];
         }
-    }
+    },
+    openFolder: (folderName) => ipcRenderer.send('open-folder', folderName),
+    minimizeWindow: () => ipcRenderer.send('minimize-window'),
+    closeWindow: () => ipcRenderer.send('close-window'),
+    handleOptionsAction: (action) => ipcRenderer.send('options-action', action)
 });

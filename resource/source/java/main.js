@@ -1,7 +1,8 @@
 'use strict';
 
-const { app, BrowserWindow, ipcMain, Tray, Menu, Notification, screen } = require('electron');
+const { app, BrowserWindow, ipcMain, Tray, Menu, Notification, screen, shell } = require('electron');
 const path = require('path');
+const fs = require('fs');
 
 app.name = 'PEARDESK';
 
@@ -165,6 +166,22 @@ app.whenReady().then(() => {
   ipcMain.on('launch-program', (event, program) => {
     console.log('Launching program:', program);
     // Add program launch logic here
+  });
+
+  // Add handler for opening folders
+  ipcMain.on('open-folder', (_, folderName) => {
+    const userDataPath = path.join(__dirname, '../../../storage/userdata');
+    const folderPath = path.join(userDataPath, folderName.toLowerCase());
+    
+    // Create folder if it doesn't exist
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
+    }
+    
+    // Open folder in explorer
+    shell.openPath(folderPath)
+      .then(() => console.log(`Opened ${folderName} folder`))
+      .catch(err => console.error(`Error opening ${folderName} folder:`, err));
   });
 });
 

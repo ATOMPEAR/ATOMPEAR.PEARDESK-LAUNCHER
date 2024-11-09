@@ -241,4 +241,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update placeholder text
     searchInput.setAttribute('placeholder', 'TYPE /HELP FOR LIST OF COMMANDS');
+
+    // Add system menu button functionality
+    const systemMenuButtons = document.querySelectorAll('.systems-menu-button');
+
+    systemMenuButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const folderName = button.querySelector('.button-text').textContent;
+            console.log(`Opening ${folderName} folder...`);
+            window.electronAPI.openFolder(folderName);
+        });
+    });
 });

@@ -1,8 +1,8 @@
 {
   "name": "peardesk-launcher",
   "productName": "PEARDESK",
-  "version": "00.00.07",
-  "description": "Electron application with SASS",
+  "version": "00.00.08",
+  "description": "PROGRAM LAUNCHER FOR PEARDESK",
   "main": "resource/source/java/main.js",
   "scripts": {
     "start": "nodemon --exec electron .",
