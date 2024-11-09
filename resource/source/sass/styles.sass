@@ -560,13 +560,15 @@ html, body
 
 .metro-grid
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))
+    grid-template-columns: repeat(4, minmax(0, 1fr))
     gap: 10px
     padding: 0 10px
+    width: 100%
     
 .metro-item
+    width: 100%
+    aspect-ratio: 1/1
     background: #333333
-    aspect-ratio: 1
     border: 2px solid transparent
     display: flex
     flex-direction: column
@@ -575,6 +577,7 @@ html, body
     padding: 10px
     position: relative
     cursor: default
+    box-sizing: border-box
     
     &:hover
         border-color: $accent-color
@@ -597,6 +600,10 @@ html, body
         text-align: center
         font-family: 'Terminus', monospace
         text-transform: uppercase
+        width: 100%
+        overflow: hidden
+        text-overflow: ellipsis
+        white-space: nowrap
     
     &-pin
         position: absolute
