@@ -105,7 +105,99 @@
                 </div>
             </div>
             <div class="content-area settings" role="region" aria-label="Settings Content">
-                <h2>Settings</h2>
+                <div class="settings-container">
+                    <section class="settings-section">
+                        <h2 class="settings-title">Appearance</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label for="theme">Theme</label>
+                                <select id="theme" class="settings-select">
+                                    <option value="dark">Dark</option>
+                                    <option value="light">Light</option>
+                                </select>
+                            </div>
+                            <div class="settings-item">
+                                <label for="accentColor">Accent Color</label>
+                                <select id="accentColor" class="settings-select">
+                                    <option value="#01a2ff">Blue</option>
+                                    <option value="#00cc6a">Green</option>
+                                    <option value="#ff3c3c">Red</option>
+                                    <option value="#ff8c00">Orange</option>
+                                    <option value="#9933ff">Purple</option>
+                                    <option value="#ff1f9f">Pink</option>
+                                    <option value="#ffcc00">Yellow</option>
+                                    <option value="#00cccc">Cyan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h2 class="settings-title">Behavior</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="autoStart">
+                                    Start with Windows
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="minimizeToTray" checked>
+                                    Minimize to System Tray
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="showNotifications" checked>
+                                    Show Notifications
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h2 class="settings-title">Window</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="alwaysOnTop">
+                                    Always on Top
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label for="opacity">Window Opacity</label>
+                                <input type="range" id="opacity" min="50" max="100" value="100" class="settings-range">
+                                <span class="range-value">100%</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h2 class="settings-title">Updates</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="autoUpdate" checked>
+                                    Check for Updates Automatically
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label for="updateChannel">Update Channel</label>
+                                <select id="updateChannel" class="settings-select">
+                                    <option value="stable">Stable</option>
+                                    <option value="beta">Beta</option>
+                                    <option value="dev">Development</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="settings-footer">
+                        <button class="settings-button" id="resetSettings">Reset to Default</button>
+                        <button class="settings-button primary" id="saveSettings">Save Changes</button>
+                    </div>
+                </div>
             </div>
             <div class="content-area calculator" role="region" aria-label="Calculator Content">
                 <h2>Calculator</h2>

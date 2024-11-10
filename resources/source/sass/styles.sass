@@ -618,3 +618,151 @@ html, body
         &--active
             opacity: 1
             color: $accent-color
+
+// Add settings styles
+
+.settings-container
+    padding: 20px
+    height: 100%
+    overflow-y: auto
+    background-color: #222222
+    color: #ffffff
+
+    &::-webkit-scrollbar
+        width: 5px
+        background-color: transparent
+    
+        &-thumb
+            background-color: #222222
+            border-radius: 2.5px
+            
+            &:hover
+                background-color: #444444
+            
+            &:active
+                background-color: #01a2ff !important
+
+.settings-section
+    margin-bottom: 30px
+    
+    &:last-child
+        margin-bottom: 60px
+
+.settings-title
+    font-size: 16px
+    margin-bottom: 15px
+    text-transform: uppercase
+    font-family: 'Terminus', monospace
+    color: $accent-color
+
+.settings-group
+    background: #333333
+    border-radius: 4px
+    padding: 15px
+
+.settings-item
+    margin-bottom: 15px
+    
+    &:last-child
+        margin-bottom: 0
+    
+    label
+        display: block
+        margin-bottom: 8px
+        font-size: 12px
+        text-transform: uppercase
+        font-family: 'Terminus', monospace
+
+.settings-select, .settings-color, .settings-range
+    background: #444444
+    border: none
+    color: #ffffff
+    padding: 8px
+    width: 200px
+    font-family: 'Terminus', monospace
+    font-size: 12px
+    border-radius: 2px
+    
+    &:focus
+        outline: 1px solid $accent-color
+
+.settings-checkbox
+    display: flex
+    align-items: center
+    gap: 8px
+    cursor: pointer
+    
+    input[type="checkbox"]
+        appearance: none
+        width: 16px
+        height: 16px
+        background: #444444
+        border-radius: 2px
+        position: relative
+        cursor: pointer
+        
+        &:checked
+            background: $accent-color
+            
+            &::after
+                content: '\f00c'
+                font-family: 'Font Awesome 6 Free'
+                font-weight: 900
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translate(-50%, -50%)
+                color: #ffffff
+                font-size: 10px
+
+.settings-range
+    -webkit-appearance: none
+    height: 4px
+    background: #444444
+    border-radius: 2px
+    
+    &::-webkit-slider-thumb
+        -webkit-appearance: none
+        width: 16px
+        height: 16px
+        background: $accent-color
+        border-radius: 50%
+        cursor: pointer
+
+.range-value
+    margin-left: 8px
+    font-size: 12px
+    color: #888888
+
+.settings-footer
+    position: fixed
+    bottom: 0
+    left: 32px
+    right: 0
+    padding: 15px 20px
+    background: #222222
+    border-top: 1px solid #333333
+    display: flex
+    justify-content: flex-end
+    gap: 10px
+
+.settings-button
+    background: #333333
+    border: none
+    color: #ffffff
+    padding: 8px 16px
+    font-family: 'Terminus', monospace
+    font-size: 12px
+    text-transform: uppercase
+    border-radius: 2px
+    cursor: pointer
+    transition: all 0.2s ease
+    
+    &:hover
+        background: #444444
+    
+    &.primary
+        background: $accent-color
+        
+        &:hover
+            background: #0183cc

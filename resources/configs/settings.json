@@ -1,12 +1,22 @@
 {
     "information": {
-        "name": "PEARDESK",
+        "name": "PEARDESK LAUNCHER",
         "version": "00.00.08"
     },
     "settings": {
         "theme": "dark",
-        "language": "en",
+        "accent": "blue",
+        "language": "en"
+    },
+    "behavior": {
         "autoStart": false,
         "alwaysOnTop": false
+    },
+    "window": {
+        "minimizeTray": true,
+        "winOpacity": 0
+    },
+    "update": {
+        "channel": "stable"
     }
 }
