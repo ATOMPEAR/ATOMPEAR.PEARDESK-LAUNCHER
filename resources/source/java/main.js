@@ -9,6 +9,41 @@ app.name = 'PEARDESK';
 let mainWindow;
 let tray;
 
+// Add auto-start functionality
+function setAutoStart(enabled) {
+    if (process.platform === 'win32') {
+        app.setLoginItemSettings({
+            openAtLogin: enabled,
+            path: process.execPath,
+            args: ['--minimized']
+        });
+    }
+}
+
+// Function to load settings and apply auto-start
+function loadAndApplySettings() {
+    try {
+        const settingsPath = path.join(__dirname, '../../../resources/configs/settings.json');
+        const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+        
+        // Apply auto-start setting
+        setAutoStart(settings.behavior.autoStart);
+        
+        // Apply always on top setting
+        mainWindow.setAlwaysOnTop(settings.behavior.alwaysOnTop);
+        
+        return settings;
+    } catch (error) {
+        console.error('Error loading settings:', error);
+        return null;
+    }
+}
+
+// Add IPC handler for settings changes
+ipcMain.on('settings-updated', () => {
+    loadAndApplySettings();
+});
+
 function createWindow() {
   // Get primary display dimensions
   const { width: screenWidth, height: screenHeight } = screen.getPrimaryDisplay().workAreaSize;
@@ -100,22 +135,35 @@ function createTray() {
 }
 
 function showNotification() {
-  const notification = new Notification({
-    title: 'App Minimized',
-    body: 'App is running in the system tray',
-    icon: path.join(__dirname, '../../assets/images/favicons/favicon.ico')
-  });
-  notification.show();
+    // Load settings to check showNotify state
+    try {
+        const settingsPath = path.join(__dirname, '../../../resources/configs/settings.json');
+        const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+        
+        // Only show notification if showNotify is true
+        if (settings.behavior.showNotify) {
+            const notification = new Notification({
+                title: 'App Minimized',
+                body: 'App is running in the system tray',
+                icon: path.join(__dirname, '../../assets/images/favicons/favicon.ico')
+            });
+            notification.show();
+        }
+    } catch (error) {
+        console.error('Error checking notification settings:', error);
+    }
 }
 
 app.whenReady().then(() => {
+  // Load and apply settings on startup
+  loadAndApplySettings();
+  
   createWindow();
   createTray();
 
   // Handle window controls
   ipcMain.on('minimize-window', () => {
-    mainWindow.hide();
-    showNotification();
+    handleMinimize();
   });
 
   ipcMain.on('close-window', () => {
@@ -187,6 +235,15 @@ app.whenReady().then(() => {
   ipcMain.on('reset-position', (_, position) => {
     mainWindow.setPosition(position.x, position.y);
   });
+
+  // Add handler for settings changes
+  ipcMain.on('settings-updated', () => {
+    const settings = loadAndApplySettings();
+    if (settings) {
+      // Apply window settings immediately
+      mainWindow.setAlwaysOnTop(settings.behavior.alwaysOnTop);
+    }
+  });
 });
 
 // Quit the app when all windows are closed (except on macOS)
@@ -200,3 +257,24 @@ app.on('window-all-closed', () => {
 app.on('before-quit', () => {
   app.isQuitting = true;
 });
+
+// Update the minimize window functionality
+function handleMinimize() {
+    try {
+        const settingsPath = path.join(__dirname, '../../../resources/configs/settings.json');
+        const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+        
+        if (settings.window.minimizeTray) {
+            // Minimize to tray
+            mainWindow.hide();
+            showNotification();
+        } else {
+            // Normal minimize to taskbar
+            mainWindow.minimize();
+        }
+    } catch (error) {
+        console.error('Error checking minimize settings:', error);
+        // Default to normal minimize if error
+        mainWindow.minimize();
+    }
+}

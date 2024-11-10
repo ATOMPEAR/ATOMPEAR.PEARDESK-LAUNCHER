@@ -78,6 +78,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
         try {
             const settingsPath = path.join(__dirname, '../../../resources/configs/settings.json');
             fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 4));
+            ipcRenderer.send('settings-updated');
             return true;
         } catch (error) {
             console.error('Error saving settings:', error);
