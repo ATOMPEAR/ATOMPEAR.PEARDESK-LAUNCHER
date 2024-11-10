@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="drive-progress-bar" style="width: ${usedPercent}%"></div>
                     </div>
                     <span class="drive-free">${freeGB}GB free</span>
+                    <img src="../assets/images/favicons/favicon.png" class="footer-icon" alt="PearDesk">
                 </div>
             `;
         } catch (error) {
