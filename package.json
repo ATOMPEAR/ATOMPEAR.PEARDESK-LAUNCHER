@@ -3,19 +3,20 @@
   "productName": "PEARDESK",
   "version": "00.00.08",
   "description": "PROGRAM LAUNCHER FOR PEARDESK",
-  "main": "resource/source/java/main.js",
+  "main": "resources/source/java/main.js",
   "scripts": {
+    "run": "electron .",
     "start": "nodemon --exec electron .",
-    "sass": "sass --watch --style=compressed resource/source/sass/styles.sass:resource/source/com/styles.min.css --no-source-map",
+    "sass": "sass --watch --style=compressed resources/source/sass/styles.sass:resources/source/com/styles.min.css --no-source-map",
     "dev": "concurrently --kill-others \"npm run sass\" \"npm run start\""
   },
   "dependencies": {
-    "electron": "29.0.0",
+    "electron": "^32.2.0",
     "check-disk-space": "^3.4.0"
   },
   "devDependencies": {
-    "concurrently": "9.0.1",
-    "nodemon": "3.1.7",
-    "sass": "1.80.5"
+    "concurrently": "^9.0.1",
+    "nodemon": "^3.1.7",
+    "sass": "^1.80.5"
   }
 }

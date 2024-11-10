@@ -57,6 +57,9 @@ html, body
     gap: 10px
     flex: 1
 
+    .titlebar-button-openstart
+      -webkit-app-region: no-drag
+
   &-title
     color: white
     font-size: 14px
@@ -78,6 +81,9 @@ html, body
     margin-right: 2px
     flex: 1
     justify-content: flex-end
+
+    .options-container
+      -webkit-app-region: no-drag
 
 .titlebar-button
   width: $control-button-size
@@ -568,7 +574,7 @@ html, body
 .metro-item
     width: 100%
     aspect-ratio: 1/1
-    background: #333333
+    background: #222222
     border: 2px solid transparent
     display: flex
     flex-direction: column
@@ -581,7 +587,7 @@ html, body
     
     &:hover
         border-color: $accent-color
-        background: #444444
+        background: #222222
         
         .metro-item-pin
             opacity: 1

@@ -10,7 +10,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     test: () => console.log('electronAPI is available'),
     getPrograms: () => {
         try {
-            const programsPath = path.join(__dirname, '../../../resource/configs/programs.json');
+            const programsPath = path.join(__dirname, '../../../resources/configs/programs.json');
             console.log('Loading programs from:', programsPath);
             
             if (!fs.existsSync(programsPath)) {
@@ -54,7 +54,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     },
     savePrograms: (programs) => {
         try {
-            const programsPath = path.join(__dirname, '../../../resource/configs/programs.json');
+            const programsPath = path.join(__dirname, '../../../resources/configs/programs.json');
             const data = { programs };
             fs.writeFileSync(programsPath, JSON.stringify(data, null, 4));
             return true;
@@ -62,5 +62,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
             console.error('Error saving programs:', error);
             return false;
         }
-    }
+    },
+    resetPosition: (position) => ipcRenderer.send('reset-position', position),
 });

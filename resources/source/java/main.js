@@ -18,7 +18,7 @@ function createWindow() {
     width: 400,
     height: 600,
     resizable: false,
-    movable: false,
+    movable: true,
     frame: false,
     title: 'PEARDESK',
     maximizable: false,
@@ -182,6 +182,10 @@ app.whenReady().then(() => {
     shell.openPath(folderPath)
       .then(() => console.log(`Opened ${folderName} folder`))
       .catch(err => console.error(`Error opening ${folderName} folder:`, err));
+  });
+
+  ipcMain.on('reset-position', (_, position) => {
+    mainWindow.setPosition(position.x, position.y);
   });
 });
 

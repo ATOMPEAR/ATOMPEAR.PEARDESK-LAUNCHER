@@ -63,6 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (action === 'commands') {
                 searchCommands.classList.toggle('visible');
+            } else if (action === 'position') {
+                // Reset window to original position
+                const screenWidth = window.screen.availWidth;
+                const screenHeight = window.screen.availHeight;
+                const windowWidth = 400;
+                const windowHeight = 600;
+                const margin = 20;
+
+                // Calculate position (bottom right with margin)
+                const x = screenWidth - windowWidth - margin;
+                const y = screenHeight - windowHeight - margin;
+
+                // Send position to main process
+                window.electronAPI.resetPosition({ x, y });
             }
             
             window.electronAPI.handleOptionsAction(action);

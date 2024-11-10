@@ -1,13 +1,13 @@
 {
   "watch": [
-    "resource/source/java/main.js",
-    "resource/source/java/preload.js",
-    "resource/source/java/renderer.js",
-    "resource/source/index.html",
-    "resource/source/sass/styles.sass"
+    "resources/source/java/main.js",
+    "resources/source/java/preload.js",
+    "resources/source/java/renderer.js",
+    "resources/source/index.html",
+    "resources/source/sass/styles.sass"
   ],
   "ignore": [
-    "resource/source/com/*",
+    "resources/source/com/*",
     "node_modules/*"
   ],
   "ext": "js,html,css,sass",
