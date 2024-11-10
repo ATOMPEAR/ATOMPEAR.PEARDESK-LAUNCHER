@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App</title>
+
+    <link rel="stylesheet" href="./com/styles.min.css">
+    <script src="https://kit.fontawesome.com/dbd1c218fe.js" crossorigin="anonymous"></script>
+</head>
+<body class="app">
+    <div class="titlebar" role="banner">
+        <div class="titlebar-left">
+            <button class="titlebar-button titlebar-button-openstart" aria-label="Open Start">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="titlebar-title">PearDesk</div>
+        </div>
+        <div class="titlebar-controls">
+            <div class="options-container">
+                <button class="titlebar-button titlebar-button-options" aria-label="Options" aria-haspopup="true" aria-expanded="false"></button>
+                <div class="options-dropdown">
+                    <div class="options-dropdown-item" role="menuitem" tabindex="0">Position</div>
+                    <div class="options-dropdown-item" role="menuitem" tabindex="0">Commands</div>
+                </div>
+            </div>
+            <button class="titlebar-button titlebar-button-minimize" aria-label="Minimize"></button>
+            <button class="titlebar-button titlebar-button-close" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <main class="main-content1 active" role="main">
+        <form class="search-commands" aria-label="Search Commands">
+            <input type="text" class="search-input" aria-label="Search commands input">
+        </form>
+        <div class="content1-content">
+            <section class="programs-list">
+                <ul class="programs-list-items">
+                    <!-- CONTENT IS LOADED DYNAMICALY FROM RENDERER.JS -->
+                </ul>
+            </section>
+            <section class="systems-menu">
+                <button class="systems-menu-button" aria-label="Open Desktop">
+                    <span class="button-text">Desktop</span>
+                    <i class="fa-solid fa-desktop"></i>
+                </button>
+                <button class="systems-menu-button" aria-label="Open Downloads">
+                    <span class="button-text">Downloads</span>
+                    <i class="fa-solid fa-download"></i>
+                </button>
+                <button class="systems-menu-button" aria-label="Open Documents">
+                    <span class="button-text">Documents</span>
+                    <i class="fa-solid fa-file"></i>
+                </button>
+                <button class="systems-menu-button" aria-label="Open Pictures">
+                    <span class="button-text">Pictures</span>
+                    <i class="fa-solid fa-image"></i>
+                </button>
+                <button class="systems-menu-button" aria-label="Open Music">
+                    <span class="button-text">Music</span>
+                    <i class="fa-solid fa-music"></i>
+                </button>
+                <button class="systems-menu-button" aria-label="Open Videos">
+                    <span class="button-text">Videos</span>
+                    <i class="fa-solid fa-film"></i>
+                </button>
+            </section>
+        </div>
+        <footer class="content1-footer">
+            <!-- CONTENT IS LOADED DYNAMICALY FROM RENDERER.JS -->
+        </footer>
+    </main>
+
+    <main class="main-content2" role="main">
+        <nav class="startmenu" role="navigation">
+            <button class="startmenu-button active" data-content="start" aria-label="Start">
+                <i class="fa-brands fa-microsoft"></i>
+            </button>
+            <button class="startmenu-button" data-content="settings" aria-label="Settings">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+            <button class="startmenu-button" data-content="calculator" aria-label="Calculator">
+                <i class="fa-solid fa-calculator"></i>
+            </button>
+            <button class="startmenu-button" data-content="terminal" aria-label="Terminal">
+                <i class="fa-solid fa-terminal"></i>
+            </button>
+        </nav>
+        <div class="startmenu-content">
+            <div class="content-area start active" role="region" aria-label="Start Content">
+                <div class="metro-start">
+                    <section class="metro-section pinned-section">
+                        <h2 class="metro-section-title">Pinned</h2>
+                        <div class="metro-grid" id="pinnedPrograms">
+                            <!-- CONTENT IS LOADED DYNAMICALY FROM RENDERER.JS -->
+                        </div>
+                    </section>
+                    
+                    <section class="metro-section all-programs">
+                        <h2 class="metro-section-title">All Programs</h2>
+                        <div class="metro-grid" id="allPrograms">
+                            <!-- CONTENT IS LOADED DYNAMICALY FROM RENDERER.JS -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="content-area settings" role="region" aria-label="Settings Content">
+                <div class="settings-container">
+                    <section class="settings-section">
+                        <h2 class="settings-title">Appearance</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label for="theme">Theme</label>
+                                <select id="theme" class="settings-select">
+                                    <option value="dark">Dark</option>
+                                    <option value="light">Light</option>
+                                </select>
+                            </div>
+                            <div class="settings-item">
+                                <label for="accentColor">Accent Color</label>
+                                <select id="accentColor" class="settings-select">
+                                    <option value="#01a2ff">Blue</option>
+                                    <option value="#00cc6a">Green</option>
+                                    <option value="#ff3c3c">Red</option>
+                                    <option value="#ff8c00">Orange</option>
+                                    <option value="#9933ff">Purple</option>
+                                    <option value="#ff1f9f">Pink</option>
+                                    <option value="#ffcc00">Yellow</option>
+                                    <option value="#00cccc">Cyan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h2 class="settings-title">Behavior</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="autoStart">
+                                    Start with Windows
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="minimizeToTray" checked>
+                                    Minimize to System Tray
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="showNotifications" checked>
+                                    Show Notifications
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h2 class="settings-title">Window</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="alwaysOnTop">
+                                    Always on Top
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label for="opacity">Window Opacity</label>
+                                <input type="range" id="opacity" min="50" max="100" value="100" class="settings-range">
+                                <span class="range-value">100%</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="settings-section">
+                        <h2 class="settings-title">Updates</h2>
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <label class="settings-checkbox">
+                                    <input type="checkbox" id="autoUpdate" checked>
+                                    Check for Updates Automatically
+                                </label>
+                            </div>
+                            <div class="settings-item">
+                                <label for="updateChannel">Update Channel</label>
+                                <select id="updateChannel" class="settings-select">
+                                    <option value="stable">Stable</option>
+                                    <option value="beta">Beta</option>
+                                    <option value="dev">Development</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="settings-footer">
+                        <button class="settings-button" id="resetSettings">Reset to Default</button>
+                        <button class="settings-button primary" id="saveSettings">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+            <div class="content-area calculator" role="region" aria-label="Calculator Content">
+                <h2>Calculator</h2>
+            </div>
+            <div class="content-area terminal" role="region" aria-label="Terminal Content">
+                <h2>Terminal</h2>
+            </div>
+        </div>
+    </main>
+
+    <script src="./java/renderer.js"></script>
+</body>
+</html>
