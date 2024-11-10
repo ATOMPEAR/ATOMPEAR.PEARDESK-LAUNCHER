@@ -1,0 +1,20 @@
+{
+    "settings": {
+        "theme": "dark",
+        "accent": "#01a2ff",
+        "language": "en"
+    },
+    "behavior": {
+        "autoStart": false,
+        "alwaysOnTop": false,
+        "showNotify": true
+    },
+    "window": {
+        "minimizeTray": true,
+        "winOpacity": 100
+    },
+    "update": {
+        "channel": "stable",
+        "autoUpdate": false
+    }
+}
