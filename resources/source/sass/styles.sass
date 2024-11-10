@@ -1,6 +1,7 @@
 @use 'imports/font/terminus'
 @use 'imports/font/ubuntu'
 @use 'imports/scrollbar/programs'
+@use 'imports/scrollbar/metrostart'
 
 // Variables
 $primary-color: #222222
@@ -540,20 +541,6 @@ html, body
     height: 100%
     overflow-y: auto
     background-color: #222222
-    
-    &::-webkit-scrollbar
-        width: 5px
-        background-color: transparent
-    
-    &::-webkit-scrollbar-thumb
-        background-color: #222222
-        border-radius: 2.5px
-        
-        &:hover
-            background-color: #444444
-        
-        &:active
-            background-color: #01a2ff !important
 
 .metro-section
     margin-bottom: 30px
