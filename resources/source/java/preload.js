@@ -64,4 +64,24 @@ contextBridge.exposeInMainWorld('electronAPI', {
         }
     },
     resetPosition: (position) => ipcRenderer.send('reset-position', position),
+    getSettings: () => {
+        try {
+            const settingsPath = path.join(__dirname, '../../../resources/configs/settings.json');
+            const data = fs.readFileSync(settingsPath, 'utf8');
+            return JSON.parse(data);
+        } catch (error) {
+            console.error('Error loading settings:', error);
+            return null;
+        }
+    },
+    saveSettings: (settings) => {
+        try {
+            const settingsPath = path.join(__dirname, '../../../resources/configs/settings.json');
+            fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 4));
+            return true;
+        } catch (error) {
+            console.error('Error saving settings:', error);
+            return false;
+        }
+    }
 });
