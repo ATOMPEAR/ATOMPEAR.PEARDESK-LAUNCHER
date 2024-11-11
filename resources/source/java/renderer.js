@@ -466,55 +466,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const saveButton = document.getElementById('saveSettings');
     const resetButton = document.getElementById('resetSettings');
 
-    // Add defaultSettings constant at the top of settings functionality
-    const defaultSettings = {
-        settings: {
-            theme: "dark",
-            accent: "#01a2ff",
-            language: "en"
-        },
-        behavior: {
-            autoStart: false,
-            alwaysOnTop: false,
-            showNotify: true
-        },
-        window: {
-            minimizeTray: true,
-            winOpacity: 100
-        },
-        update: {
-            channel: "stable",
-            autoUpdate: false
+    // Load current settings
+    const loadSettings = () => {
+        try {
+            const settings = window.electronAPI.getSettings();
+            console.log('Loading settings:', settings);
+            
+            if (settings) {
+                // Theme
+                themeSelect.value = settings.settings.theme;
+                
+                // Accent Color
+                accentSelect.value = settings.settings.accent;
+                
+                // Behavior settings
+                autoStartCheck.checked = settings.behavior.autoStart;
+                alwaysOnTopCheck.checked = settings.behavior.alwaysOnTop;
+                showNotificationsCheck.checked = settings.behavior.showNotify;
+                
+                // Window settings
+                minimizeToTrayCheck.checked = settings.window.minimizeTray;
+                opacityRange.value = settings.window.winOpacity;
+                opacityValue.textContent = `${settings.window.winOpacity}%`;
+                
+                // Update settings
+                updateChannelSelect.value = settings.update.channel;
+                autoUpdateCheck.checked = settings.update.autoUpdate;
+            }
+        } catch (error) {
+            console.error('Error loading settings:', error);
         }
     };
 
-    // Load current settings
-    const loadSettings = () => {
-        const settings = window.electronAPI.getSettings();
-        console.log('Loading settings:', settings);
-        
-        if (settings) {
-            // Theme
-            themeSelect.value = settings.settings.theme;
-            
-            // Accent Color
-            accentSelect.value = settings.settings.accent;
-            
-            // Behavior settings
-            autoStartCheck.checked = settings.behavior.autoStart;
-            alwaysOnTopCheck.checked = settings.behavior.alwaysOnTop;
-            showNotificationsCheck.checked = settings.behavior.showNotify;
-            
-            // Window settings
-            minimizeToTrayCheck.checked = settings.window.minimizeTray;
-            opacityRange.value = settings.window.winOpacity;
-            opacityValue.textContent = `${settings.window.winOpacity}%`;
-            
-            // Update settings
-            updateChannelSelect.value = settings.update.channel;
-            autoUpdateCheck.checked = settings.update.autoUpdate;
-        }
-    };
+    // Initialize settings on startup
+    loadSettings();
 
     // Save settings
     const saveSettings = () => {
@@ -593,7 +578,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Initialize settings
-    loadSettings();
 });
