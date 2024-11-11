@@ -200,7 +200,58 @@
                 </div>
             </div>
             <div class="content-area calculator" role="region" aria-label="Calculator Content">
-                <h2>Calculator</h2>
+                <div class="calculator-container">
+                    <div class="calculator-history">
+                        <div class="history-header">
+                            <div class="history-title">History</div>
+                            <div class="history-controls">
+                                <button class="history-clear" id="clearHistory" aria-label="Clear history">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                <button class="history-expand" id="expandHistory">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="history-list collapsed" id="calculatorHistory">
+                            <div class="history-items">
+                                <!-- History items will be added here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calculator-main">
+                        <div class="calculator-display">
+                            <div class="previous-operand" id="previousOperand"></div>
+                            <div class="current-operand" id="currentOperand">0</div>
+                        </div>
+                        <div class="calculator-buttons">
+                            <button class="calc-btn operation" data-action="clear">C</button>
+                            <button class="calc-btn operation" data-action="sqrt">√</button>
+                            <button class="calc-btn operation" data-action="percent">%</button>
+                            <button class="calc-btn operation" data-action="divide">÷</button>
+                            
+                            <button class="calc-btn number">7</button>
+                            <button class="calc-btn number">8</button>
+                            <button class="calc-btn number">9</button>
+                            <button class="calc-btn operation" data-action="multiply">×</button>
+                            
+                            <button class="calc-btn number">4</button>
+                            <button class="calc-btn number">5</button>
+                            <button class="calc-btn number">6</button>
+                            <button class="calc-btn operation" data-action="subtract">−</button>
+                            
+                            <button class="calc-btn number">1</button>
+                            <button class="calc-btn number">2</button>
+                            <button class="calc-btn number">3</button>
+                            <button class="calc-btn operation" data-action="add">+</button>
+                            
+                            <button class="calc-btn operation" data-action="negate">±</button>
+                            <button class="calc-btn number">0</button>
+                            <button class="calc-btn number">.</button>
+                            <button class="calc-btn operation" data-action="equals">=</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="content-area terminal" role="region" aria-label="Terminal Content">
                 <h2>Terminal</h2>

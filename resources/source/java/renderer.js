@@ -578,4 +578,215 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Calculator functionality
+    function initializeCalculator() {
+        const previousOperandElement = document.getElementById('previousOperand');
+        const currentOperandElement = document.getElementById('currentOperand');
+        const historyList = document.getElementById('calculatorHistory');
+        const expandButton = document.getElementById('expandHistory');
+        const historyControls = document.querySelector('.history-controls');
+        let isExpanded = false;
+        
+        let currentOperand = '0';
+        let previousOperand = '';
+        let operation = undefined;
+        let shouldResetScreen = false;
+
+        function updateDisplay() {
+            currentOperandElement.textContent = currentOperand;
+            previousOperandElement.textContent = previousOperand;
+        }
+
+        function addToHistory(calculation, result) {
+            const historyItems = document.querySelector('.history-items');
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.innerHTML = `
+                <span class="history-calculation">${calculation}</span>
+                <span class="history-result">${result}</span>
+            `;
+            historyItems.appendChild(historyItem);
+            historyItems.scrollTop = historyItems.scrollHeight;
+        }
+
+        function appendNumber(number) {
+            if (shouldResetScreen) {
+                currentOperand = '';
+                shouldResetScreen = false;
+            }
+            if (number === '.' && currentOperand.includes('.')) return;
+            currentOperand = currentOperand === '0' ? number : currentOperand + number;
+            updateDisplay();
+        }
+
+        function toggleSign() {
+            if (currentOperand === '0') return;
+            currentOperand = currentOperand.startsWith('-') ? 
+                currentOperand.slice(1) : 
+                '-' + currentOperand;
+            updateDisplay();
+        }
+
+        function handleOperation(op) {
+            if (currentOperand === '') return;
+            if (previousOperand !== '') {
+                calculate();
+            }
+            operation = op;
+            previousOperand = `${currentOperand} ${op}`;
+            currentOperand = '';
+            updateDisplay();
+        }
+
+        function calculate() {
+            let computation;
+            const prev = parseFloat(previousOperand);
+            const current = parseFloat(currentOperand);
+            if (isNaN(prev) || isNaN(current)) return;
+
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '−':
+                    computation = prev - current;
+                    break;
+                case '×':
+                    computation = prev * current;
+                    break;
+                case '÷':
+                    computation = prev / current;
+                    break;
+                case '%':
+                    computation = prev * (current / 100);
+                    break;
+                default:
+                    return;
+            }
+
+            const calculation = `${prev} ${operation} ${current}`;
+            currentOperand = computation.toString();
+            addToHistory(calculation, currentOperand);
+            operation = undefined;
+            previousOperand = '';
+            shouldResetScreen = true;
+            updateDisplay();
+        }
+
+        function clear() {
+            currentOperand = '0';
+            previousOperand = '';
+            operation = undefined;
+            updateDisplay();
+        }
+
+        function handleSquareRoot() {
+            if (currentOperand === '') return;
+            const number = parseFloat(currentOperand);
+            if (number < 0) {
+                currentOperand = 'Error';
+            } else {
+                const calculation = `√(${currentOperand})`;
+                currentOperand = Math.sqrt(number).toString();
+                addToHistory(calculation, currentOperand);
+            }
+            shouldResetScreen = true;
+            updateDisplay();
+        }
+
+        // Event listeners for calculator buttons
+        document.querySelectorAll('.calc-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.classList.contains('number')) {
+                    appendNumber(button.textContent);
+                } else {
+                    const action = button.dataset.action;
+                    switch (action) {
+                        case 'add':
+                            handleOperation('+');
+                            break;
+                        case 'subtract':
+                            handleOperation('−');
+                            break;
+                        case 'multiply':
+                            handleOperation('×');
+                            break;
+                        case 'divide':
+                            handleOperation('÷');
+                            break;
+                        case 'percent':
+                            handleOperation('%');
+                            break;
+                        case 'equals':
+                            if (operation) calculate();
+                            break;
+                        case 'clear':
+                            clear();
+                            break;
+                        case 'sqrt':
+                            handleSquareRoot();
+                            break;
+                        case 'negate':
+                            toggleSign();
+                            break;
+                    }
+                }
+            });
+        });
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9' || e.key === '.') {
+                appendNumber(e.key);
+            } else if (e.key === '+') {
+                handleOperation('+');
+            } else if (e.key === '-') {
+                handleOperation('−');
+            } else if (e.key === '*') {
+                handleOperation('×');
+            } else if (e.key === '/') {
+                e.preventDefault();
+                handleOperation('÷');
+            } else if (e.key === 'Enter' || e.key === '=') {
+                if (operation) calculate();
+            } else if (e.key === 'Escape') {
+                clear();
+            } else if (e.key === 'Backspace') {
+                currentOperand = currentOperand.slice(0, -1) || '0';
+                updateDisplay();
+            }
+        });
+
+        // History expansion functionality
+        expandButton.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            historyList.classList.toggle('collapsed');
+            historyControls.classList.toggle('expanded');
+            expandButton.querySelector('i').style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+            
+            // Adjust history list height
+            if (isExpanded) {
+                historyList.style.maxHeight = '65px';
+            } else {
+                historyList.style.maxHeight = '0';
+            }
+        });
+
+        // Make sure history starts collapsed
+        historyList.classList.add('collapsed');
+        historyList.style.maxHeight = '0';
+        historyControls.classList.remove('expanded');
+
+        // Clear history functionality
+        const clearHistoryButton = document.getElementById('clearHistory');
+        const historyItems = document.querySelector('.history-items');
+
+        clearHistoryButton.addEventListener('click', () => {
+            historyItems.innerHTML = ''; // Clear all history items
+        });
+    }
+
+    // Initialize calculator
+    initializeCalculator();
 });

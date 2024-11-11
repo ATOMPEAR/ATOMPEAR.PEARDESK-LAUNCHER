@@ -22,7 +22,7 @@
             "id": "brave-portable",
             "description": "This Is A Brief Description Of The Program And Its Purpose",
             "icon": "fa-globe",
-            "pinned": false
+            "pinned": true
         },
         {
             "category": "portapps",
