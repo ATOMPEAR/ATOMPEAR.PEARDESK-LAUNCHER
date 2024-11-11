@@ -586,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const historyList = document.getElementById('calculatorHistory');
         const expandButton = document.getElementById('expandHistory');
         const historyControls = document.querySelector('.history-controls');
+        const historyItems = document.querySelector('.history-items');
         let isExpanded = false;
         
         let currentOperand = '0';
@@ -599,7 +600,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function addToHistory(calculation, result) {
-            const historyItems = document.querySelector('.history-items');
             const historyItem = document.createElement('div');
             historyItem.className = 'history-item';
             historyItem.innerHTML = `
@@ -608,6 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             historyItems.appendChild(historyItem);
             historyItems.scrollTop = historyItems.scrollHeight;
+            updateHistoryState(); // Update state when adding item
         }
 
         function appendNumber(number) {
@@ -758,33 +759,66 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // History expansion functionality
-        expandButton.addEventListener('click', () => {
-            isExpanded = !isExpanded;
-            historyList.classList.toggle('collapsed');
-            historyControls.classList.toggle('expanded');
-            expandButton.querySelector('i').style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
-            
-            // Adjust history list height
-            if (isExpanded) {
-                historyList.style.maxHeight = '65px';
-            } else {
+        // Function to check if history is empty
+        function isHistoryEmpty() {
+            return historyItems.children.length === 0;
+        }
+
+        // Function to update history state
+        function updateHistoryState() {
+            if (isHistoryEmpty()) {
+                // Collapse if empty
+                isExpanded = false;
+                historyList.classList.add('collapsed');
+                historyControls.classList.remove('expanded');
+                expandButton.querySelector('i').style.transform = 'rotate(0deg)';
                 historyList.style.maxHeight = '0';
+            } else {
+                // Expand if has items
+                isExpanded = true;
+                historyList.classList.remove('collapsed');
+                historyControls.classList.add('expanded');
+                expandButton.querySelector('i').style.transform = 'rotate(180deg)';
+                historyList.style.maxHeight = '65px';
+            }
+        }
+
+        // Update addToHistory function
+        function addToHistory(calculation, result) {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.innerHTML = `
+                <span class="history-calculation">${calculation}</span>
+                <span class="history-result">${result}</span>
+            `;
+            historyItems.appendChild(historyItem);
+            historyItems.scrollTop = historyItems.scrollHeight;
+            updateHistoryState(); // Update state when adding item
+        }
+
+        // Update clear history functionality
+        const clearHistoryButton = document.getElementById('clearHistory');
+        clearHistoryButton.addEventListener('click', () => {
+            historyItems.innerHTML = '';
+            updateHistoryState(); // Update state when clearing
+        });
+
+        // Manual expand/collapse still available
+        expandButton.addEventListener('click', () => {
+            if (!isHistoryEmpty()) { // Only allow toggle if history exists
+                isExpanded = !isExpanded;
+                historyList.classList.toggle('collapsed');
+                historyControls.classList.toggle('expanded');
+                expandButton.querySelector('i').style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
+                historyList.style.maxHeight = isExpanded ? '65px' : '0';
             }
         });
 
-        // Make sure history starts collapsed
+        // Initial state
         historyList.classList.add('collapsed');
         historyList.style.maxHeight = '0';
         historyControls.classList.remove('expanded');
-
-        // Clear history functionality
-        const clearHistoryButton = document.getElementById('clearHistory');
-        const historyItems = document.querySelector('.history-items');
-
-        clearHistoryButton.addEventListener('click', () => {
-            historyItems.innerHTML = ''; // Clear all history items
-        });
+        updateHistoryState();
     }
 
     // Initialize calculator

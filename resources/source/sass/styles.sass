@@ -878,17 +878,17 @@ html, body
 
 .calculator-display
     background: #222222
-    padding: 12px  // Slightly reduced padding
+    padding: 12px
     border-radius: 4px
     text-align: right
     font-family: 'Terminus', monospace
-    height: 70px  // Slightly reduced height
+    height: 70px
     display: flex
     flex-direction: column
     justify-content: flex-end
     
     .previous-operand
-        color: #888888
+        color: $accent-color
         font-size: 14px
         min-height: 20px
         line-height: 20px
@@ -903,37 +903,37 @@ html, body
 .calculator-buttons
     display: grid
     grid-template-columns: repeat(4, 1fr)
-    gap: 8px  // Reduced gap between buttons
+    gap: 8px
     
     .calc-btn
-        height: 45px  // Slightly smaller buttons
+        height: 45px
         border: none
         border-radius: 4px
         font-family: 'Terminus', monospace
-        font-size: 16px  // Slightly smaller font
+        font-size: 16px
         cursor: pointer
         transition: all 0.2s ease
         background: #444444
         color: #ffffff
-        padding: 0  // Remove padding
+        padding: 0
         
         &:hover
             background: #555555
-        
-        &:active
-            transform: scale(0.95)
+            color: $accent-color
         
         &.operation
             background: #222222
             
             &:hover
                 background: #333333
+                color: $accent-color
             
             &[data-action="equals"]
                 background: $accent-color
                 
                 &:hover
                     background: #0183cc
+                    color: #ffffff
         
         &[data-action="clear"]
             color: #ff5f57
