@@ -14,7 +14,7 @@
             "id": "beaker-browser-portable",
             "description": "This Is A Brief Description Of The Program And Its Purpose",
             "icon": "fa-globe",
-            "pinned": true
+            "pinned": false
         },
         {
             "category": "portapps",
@@ -22,7 +22,7 @@
             "id": "brave-portable",
             "description": "This Is A Brief Description Of The Program And Its Purpose",
             "icon": "fa-globe",
-            "pinned": true
+            "pinned": false
         },
         {
             "category": "portapps",
