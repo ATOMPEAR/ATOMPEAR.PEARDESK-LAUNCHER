@@ -3,8 +3,15 @@
     "resources/source/java/main.js",
     "resources/source/java/preload.js",
     "resources/source/java/renderer.js",
+    "resources/source/java/slashcmd.js",
+    "resources/source/java/driveinfo.js",
+    "resources/source/java/startmenu.js",
+    "resources/source/java/settings.js",
+    "resources/source/java/calculator.js",
     "resources/source/index.html",
-    "resources/source/sass/styles.sass"
+    "resources/source/sass/styles.sass",
+    "package.json",
+    "nodemon.json"
   ],
   "ignore": [
     "resources/source/com/*",

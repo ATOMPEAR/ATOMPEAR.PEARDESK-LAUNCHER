@@ -6,8 +6,8 @@ function initializeSlashCommands() {
 
     // Define available commands
     const commands = [
-        { command: '/search', description: 'Search for programs (e.g., /search firefox)' },
-        { command: '/help', description: 'Show this help menu' }
+        { command: '--search', description: 'Search for programs (e.g., --search firefox)' },
+        { command: '--help', description: 'Show this help menu' }
     ];
 
     // Function to show help menu
@@ -38,7 +38,7 @@ function initializeSlashCommands() {
                 searchInput.value = command + ' ';
                 searchInput.focus();
                 
-                if (command === '/search') {
+                if (command === '--search') {
                     loadProgramsList();
                 }
             });
@@ -50,14 +50,14 @@ function initializeSlashCommands() {
         const searchTerm = e.target.value.toLowerCase();
         const programButtons = document.querySelectorAll('.programs-list-button');
         
-        if (searchTerm === '/help') {
+        if (searchTerm === '--help') {
             showHelpMenu();
-        } else if (searchTerm.startsWith('/search ')) {
+        } else if (searchTerm.startsWith('--search ')) {
             if (document.querySelector('.help-header')) {
                 loadProgramsList();
             }
             
-            const actualSearchTerm = searchTerm.replace('/search ', '');
+            const actualSearchTerm = searchTerm.replace('--search ', '');
             programButtons.forEach(button => {
                 const buttonText = button.querySelector('.button-text').textContent.toLowerCase();
                 const listItem = button.closest('li');
@@ -92,7 +92,7 @@ function initializeSlashCommands() {
     });
 
     // Update placeholder text
-    searchInput.setAttribute('placeholder', 'TYPE /HELP FOR LIST OF COMMANDS');
+    searchInput.setAttribute('placeholder', 'TYPE --HELP FOR LIST OF COMMANDS');
 }
 
 module.exports = { initializeSlashCommands };
