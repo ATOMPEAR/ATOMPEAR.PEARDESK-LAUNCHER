@@ -770,16 +770,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Collapse if empty
                 isExpanded = false;
                 historyList.classList.add('collapsed');
-                historyControls.classList.remove('expanded');
                 expandButton.querySelector('i').style.transform = 'rotate(0deg)';
                 historyList.style.maxHeight = '0';
             } else {
                 // Expand if has items
                 isExpanded = true;
                 historyList.classList.remove('collapsed');
-                historyControls.classList.add('expanded');
                 expandButton.querySelector('i').style.transform = 'rotate(180deg)';
-                historyList.style.maxHeight = '65px';
+                historyList.style.maxHeight = '74px';
             }
         }
 
@@ -808,16 +806,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isHistoryEmpty()) { // Only allow toggle if history exists
                 isExpanded = !isExpanded;
                 historyList.classList.toggle('collapsed');
-                historyControls.classList.toggle('expanded');
                 expandButton.querySelector('i').style.transform = isExpanded ? 'rotate(180deg)' : 'rotate(0deg)';
-                historyList.style.maxHeight = isExpanded ? '65px' : '0';
+                historyList.style.maxHeight = isExpanded ? '74px' : '0';
             }
         });
 
         // Initial state
         historyList.classList.add('collapsed');
         historyList.style.maxHeight = '0';
-        historyControls.classList.remove('expanded');
         updateHistoryState();
     }
 
