@@ -48,7 +48,7 @@ function initializeSlashCommands() {
     // Handle search input
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase();
-        const programButtons = document.querySelectorAll('.programs-list-button');
+        const menuCategories = document.querySelectorAll('.menu-category');
         
         if (searchTerm === '--help') {
             showHelpMenu();
@@ -58,22 +58,53 @@ function initializeSlashCommands() {
             }
             
             const actualSearchTerm = searchTerm.replace('--search ', '');
-            programButtons.forEach(button => {
-                const buttonText = button.querySelector('.button-text').textContent.toLowerCase();
-                const listItem = button.closest('li');
-                
-                if (buttonText.includes(actualSearchTerm)) {
-                    listItem.style.display = 'block';
+            
+            // Search through all categories and programs
+            menuCategories.forEach(category => {
+                const menuButton = category.querySelector('.menu-button');
+                const submenu = category.querySelector('.submenu');
+                const programButtons = submenu.querySelectorAll('.programs-list-button');
+                let hasMatch = false;
+
+                programButtons.forEach(button => {
+                    const buttonText = button.querySelector('.button-text').textContent.toLowerCase();
+                    const listItem = button.closest('li');
+                    
+                    if (buttonText.includes(actualSearchTerm)) {
+                        listItem.style.display = 'block';
+                        hasMatch = true;
+                    } else {
+                        listItem.style.display = 'none';
+                    }
+                });
+
+                // Show/hide category based on matches
+                if (hasMatch) {
+                    category.style.display = 'block';
+                    menuButton.classList.add('expanded');
+                    submenu.style.maxHeight = submenu.scrollHeight + 'px';
                 } else {
-                    listItem.style.display = 'none';
+                    category.style.display = 'none';
+                    menuButton.classList.remove('expanded');
+                    submenu.style.maxHeight = '0';
                 }
             });
         } else {
             if (document.querySelector('.help-header')) {
                 loadProgramsList();
             }
-            programButtons.forEach(button => {
-                button.closest('li').style.display = 'block';
+            // Reset visibility of all items
+            menuCategories.forEach(category => {
+                category.style.display = 'block';
+                const menuButton = category.querySelector('.menu-button');
+                const submenu = category.querySelector('.submenu');
+                menuButton.classList.remove('expanded');
+                submenu.style.maxHeight = '0';
+                
+                const programButtons = submenu.querySelectorAll('.programs-list-button');
+                programButtons.forEach(button => {
+                    button.closest('li').style.display = 'block';
+                });
             });
         }
     });

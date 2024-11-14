@@ -10,46 +10,75 @@ function initializeProgramsList() {
         }
 
         try {
-            // Clear existing content
-            programsList.innerHTML = '';
+            const programs = window.electronAPI.getPrograms();
+            
+            if (!programs || programs.length === 0) {
+                throw new Error('No programs found');
+            }
 
-            // If electronAPI is available, load programs
-            if (window.electronAPI) {
-                const programs = window.electronAPI.getPrograms();
-                
-                if (!programs || programs.length === 0) {
-                    throw new Error('No programs found');
+            // Group programs by category
+            const categories = {
+                portapps: [],
+                accessibility: [],
+                development: [],
+                education: [],
+                games: [],
+                media: [],
+                office: [],
+                security: [],
+                utilities: []
+            };
+
+            // Sort programs into categories
+            programs.forEach(program => {
+                const category = program.category.toLowerCase();
+                if (categories.hasOwnProperty(category)) {
+                    categories[category].push(program);
                 }
+            });
 
-                programs.forEach(program => {
-                    const li = document.createElement('li');
-                    li.innerHTML = `
-                        <button class="programs-list-button" data-program-id="${program.id}">
-                            <span class="button-text">${program.name}</span>
-                            <i class="fa-solid ${program.icon}"></i>
-                        </button>
-                    `;
+            // Create accordion menu
+            programsList.innerHTML = Object.entries(categories).map(([category, categoryPrograms]) => `
+                <li class="menu-category">
+                    <button class="menu-button" data-category="${category}">
+                        <span class="button-text">${category.toUpperCase()}</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <ul class="submenu">
+                        ${categoryPrograms.map(program => `
+                            <li>
+                                <button class="programs-list-button" data-program-id="${program.id}">
+                                    <span class="button-text">${program.name}</span>
+                                    <i class="fa-solid ${program.icon}"></i>
+                                </button>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </li>
+            `).join('');
 
-                    // Add click handler
-                    const button = li.querySelector('.programs-list-button');
-                    button.addEventListener('click', () => {
-                        // Remove active class from all buttons
-                        document.querySelectorAll('.programs-list-button').forEach(btn => {
-                            btn.classList.remove('active');
-                        });
-                        
-                        // Add active class to clicked button
-                        button.classList.add('active');
-                        
-                        // Remove active class after a delay
-                        setTimeout(() => {
-                            button.classList.remove('active');
-                        }, 1000);
+            // Add click handlers for accordion
+            document.querySelectorAll('.menu-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const submenu = button.nextElementSibling;
+                    const isExpanded = button.classList.contains('expanded');
+
+                    // Close all other menus
+                    document.querySelectorAll('.menu-button.expanded').forEach(expandedBtn => {
+                        if (expandedBtn !== button) {
+                            expandedBtn.classList.remove('expanded');
+                            expandedBtn.querySelector('i').style.transform = 'rotate(0deg)';
+                            expandedBtn.nextElementSibling.style.maxHeight = '0';
+                        }
                     });
 
-                    programsList.appendChild(li);
+                    // Toggle current menu
+                    button.classList.toggle('expanded');
+                    button.querySelector('i').style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                    submenu.style.maxHeight = isExpanded ? '0' : `${submenu.scrollHeight}px`;
                 });
-            }
+            });
+
         } catch (error) {
             console.error('Error:', error);
             programsList.innerHTML = `

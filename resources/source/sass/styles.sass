@@ -1004,3 +1004,112 @@ html, body
 
     .content-section
         padding: 0.5rem
+
+// Programs list accordion styles
+.programs-list
+    height: 100%
+    flex: 0 0 215px
+    background-color: #ffffff
+    display: flex
+    border-left: 5px solid #222222
+    flex-direction: column
+    color: #222222
+    overflow-y: auto
+    overflow-x: hidden
+    min-height: 0
+    
+    &-items
+        display: flex
+        flex-direction: column
+        padding: 5px
+        gap: 0
+        list-style: none
+        margin: 0
+
+    .menu-category
+        margin: 0
+        padding: 0
+        
+        .menu-button
+            width: 100%
+            height: 32px
+            background: transparent
+            border: none
+            color: #222222
+            display: flex
+            align-items: center
+            justify-content: space-between
+            padding: 0 10px
+            transition: all 0.2s ease
+            font-family: 'Terminus', monospace
+            text-transform: uppercase
+            font-size: 12px
+            cursor: default
+            
+            &:hover
+                background-color: #222222
+                color: #ffffff
+                
+                i
+                    color: $accent-color
+            
+            &.expanded
+                background-color: #222222
+                color: #ffffff
+                
+                i
+                    color: $accent-color
+            
+            i
+                font-size: 12px
+                transition: all 0.3s ease
+        
+        .submenu
+            max-height: 0
+            overflow: hidden
+            transition: max-height 0.3s ease
+            list-style: none
+            margin: 0
+            padding: 0
+            
+            li
+                padding: 0
+                margin: 0
+            
+            .programs-list-button
+                width: 100%
+                height: 32px
+                background: transparent
+                border: none
+                color: #222222
+                display: flex
+                align-items: center
+                justify-content: space-between
+                padding: 0 20px  // Extra padding for indent
+                transition: all 0.2s ease
+                font-family: 'Terminus', monospace
+                text-transform: uppercase
+                font-size: 12px
+                cursor: default
+                
+                &:hover
+                    background-color: #222222
+                    
+                    .button-text
+                        color: #ffffff
+                    
+                    i
+                        color: $accent-color
+                
+                &:active, &.active
+                    .button-text, i
+                        color: $accent-color
+                
+                i
+                    font-size: 12px
+                    margin-left: 10px
+                    transition: color 0.2s ease
+                
+                .button-text
+                    text-align: left
+                    transition: color 0.2s ease
