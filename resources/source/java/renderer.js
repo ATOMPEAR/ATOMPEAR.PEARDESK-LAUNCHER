@@ -125,4 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize calculator
     initializeCalculator();
+
+    // Add horizontal scroll support for systems menu footer
+    const systemsMenuFooter = document.querySelector('.systems-menu-footer');
+    if (systemsMenuFooter) {
+        systemsMenuFooter.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0) {
+                e.preventDefault();
+                systemsMenuFooter.scrollLeft += e.deltaY;
+            }
+        });
+    }
 });

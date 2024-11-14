@@ -354,43 +354,50 @@ html, body
             
             &-footer
                 position: absolute
-                bottom: 0
+                bottom: 10px
                 left: 0
-                width: 100%
+                width: 180px
                 height: 40px
-                background-color: #444444
+                background-color: #222222
                 overflow-x: scroll
                 overflow-y: hidden
                 white-space: nowrap
                 
                 &::-webkit-scrollbar
-                    height: 0
-                    width: 0
-                    background: transparent
+                    width: 5px
+                    height: 5px
+                    background-color: transparent
+                
+                &::-webkit-scrollbar-thumb
+                    background-color: #222222
+                    cursor: default
+                    
+                    &:hover
+                        background-color: #01a2ff
+                    
+                    &:active
+                        background-color: #01a2ff !important
                 
                 .footer-buttons
-                    display: inline-flex
-                    align-items: center
+                    display: inline-block
+                    white-space: nowrap
                     padding: 0 5px
                     height: 100%
-                    min-width: min-content
-                    gap: 5px
                     
                     .footer-button
-                        flex: 0 0 40px
+                        display: inline-flex
+                        align-items: center
+                        justify-content: center
                         width: 40px
                         height: 40px
                         background: transparent
                         border: none
                         color: #ffffff
-                        display: flex
-                        align-items: center
-                        justify-content: center
                         transition: all 0.2s ease
-                        cursor: pointer
+                        cursor: default
                         
                         i
-                            font-size: 16px
+                            font-size: 14px
                             transition: color 0.2s ease
                         
                         &:hover

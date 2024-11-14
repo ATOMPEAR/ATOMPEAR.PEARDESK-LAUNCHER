@@ -8,7 +8,7 @@
             "icon": "fa-globe",
             "pinned": true,
             "exePath": "../../storage/program/portapps/",
-            "iconPath": "../../storage/program/portapps/"
+            "iconPath": "../../storage/program/portapps/android-studio-portable/peardesk/icon1.png"
         },
         {
             "category": "portapps",
@@ -18,7 +18,7 @@
             "icon": "fa-globe",
             "pinned": true,
             "exePath": "../../storage/program/portapps/",
-            "iconPath": "../../storage/program/portapps/"
+            "iconPath": "../../storage/program/portapps/beaker-browser-portable/peardesk/icon2.png"
         },
         {
             "category": "portapps",
@@ -28,7 +28,7 @@
             "icon": "fa-globe",
             "pinned": false,
             "exePath": "../../storage/program/portapps/",
-            "iconPath": "../../storage/program/portapps/"
+            "iconPath": "../../storage/program/portapps/brave-portable/peardesk/icon3.png"
         },
         {
             "category": "portapps",
@@ -38,7 +38,7 @@
             "icon": "fa-globe",
             "pinned": false,
             "exePath": "../../storage/program/portapps/",
-            "iconPath": "../../storage/program/portapps/"
+            "iconPath": "../../storage/program/portapps/cryptomator-portable/peardesk/icon2.png"
         },
         {
             "category": "portapps",
